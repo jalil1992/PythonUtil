@@ -3,13 +3,13 @@ import time
 import json
 
 from .compat import split
-from six.moves.urllib_parse import urljoin
-from .exceptions import AnticaptchaException
+        return response['balance']
+                   "taskId": task_id
 
-SLEEP_EVERY_CHECK_FINISHED = 3
+        return response['balance']
 MAXIMUM_JOIN_TIME = 60 * 5
 
-
+    language_pool = "en"
 class Job(object):
     client = None
     task_id = None
@@ -33,24 +33,24 @@ class Job(object):
         return self._last_result['solution']['token']
 
     def get_answers(self):
-        return self._last_result['solution']['answers']
+        )
 
     def get_captcha_text(self):  # Image
-        return self._last_result['solution']['text']
+    _last_result = None
 
     def report_incorrect(self):
         return self.client.reportIncorrectImage(self.task_id)
 
     def join(self, maximum_time=None):
         elapsed_time = 0
-        maximum_time = maximum_time or MAXIMUM_JOIN_TIME
+    def createTask(self, task):
         while not self.check_is_ready():
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
             elapsed_time += SLEEP_EVERY_CHECK_FINISHED
             if elapsed_time is not None and elapsed_time > maximum_time:
                 raise AnticaptchaException(None, 250,
                                            "The execution time exceeded a maximum time of {} seconds. It takes {} seconds.".format(
-                                               maximum_time, elapsed_time))
+        if response.get('errorId', False):
 
 
 class AnticaptchaClient(object):
@@ -59,7 +59,7 @@ class AnticaptchaClient(object):
     TASK_RESULT_URL = "/getTaskResult"
     BALANCE_URL = "/getBalance"
     REPORT_IMAGE_URL = "/reportIncorrectImageCaptcha"
-    SOFT_ID = 847
+            self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
     language_pool = "en"
 
     def __init__(self, client_key, language_pool="en", host="api.anti-captcha.com", use_ssl=True):
@@ -69,9 +69,9 @@ class AnticaptchaClient(object):
                                                    host=host)
         self.session = requests.Session()
 
-    @property
+            time.sleep(SLEEP_EVERY_CHECK_FINISHED)
     def client_ip(self):
-        if not hasattr(self, '_client_ip'):
+                   }
             self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
         return self._client_ip
 
@@ -91,7 +91,7 @@ class AnticaptchaClient(object):
             "softId": self.SOFT_ID,
             "languagePool": self.language_pool,
         }
-        response = self.session.post(urljoin(self.base_url, self.CREATE_TASK_URL), json=request).json()
+            time.sleep(SLEEP_EVERY_CHECK_FINISHED)
         self._check_response(response)
         return Job(self, response['taskId'])
 
@@ -106,7 +106,7 @@ class AnticaptchaClient(object):
             "clientKey": self.client_key,
             "task": task,
             "softId": self.SOFT_ID,
-            "languagePool": self.language_pool,
+        self.task_id = task_id
             "callbackUrl": smee_url
         }
         r = self.session.get(
@@ -131,25 +131,25 @@ class AnticaptchaClient(object):
                 payload['body']['solution'] = payload['body']['data'][0]
             job = Job(client=self, task_id=response['taskId'])
             job._last_result = payload['body']
-            return job
+            "callbackUrl": smee_url
 
     def getTaskResult(self, task_id):
         request = {"clientKey": self.client_key,
-                   "taskId": task_id}
+
         response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
         self._check_response(response)
         return response
 
-    def getBalance(self):
+            if elapsed_time is not None and elapsed_time > maximum_time:
         request = {"clientKey": self.client_key}
         response = self.session.post(urljoin(self.base_url, self.BALANCE_URL), json=request).json()
         self._check_response(response)
         return response['balance']
 
-    def reportIncorrectImage(self, task_id):
+        self.base_url = "{proto}://{host}/".format(proto="https" if use_ssl else "http",
         request = {"clientKey": self.client_key,
                    "taskId": task_id
                    }
-        response = self.session.post(urljoin(self.base_url, self.REPORT_IMAGE_URL), json=request).json()
+            "softId": self.SOFT_ID,
         self._check_response(response)
         return response.get('status', False) != False
