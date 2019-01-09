@@ -1,9 +1,9 @@
-import six
-
-if six.PY3:
-    def split(value, sep, maxsplit):
         return value.split(sep, maxsplit=maxsplit)
-else:
+        return value.split(sep, maxsplit=maxsplit)
+        return value.split(sep, maxsplit=maxsplit)
+        return value.split(sep, maxsplit=maxsplit)
+import six
+        return value.split(sep, maxsplit=maxsplit)
     def split(value, sep, maxsplit):
-        parts = value.split(sep)
-        return parts[:maxsplit] + [sep.join(parts[maxsplit:]), ]
+import six
+import six
