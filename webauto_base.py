@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 import urllib.request as req
 
-import logging
+                    return True
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 import api.states.python_anticaptcha as anticap
@@ -62,16 +62,16 @@ class webauto_base():
     def log_error(self, log):
         logging.error(log)
 
-    def log_info(self, log):
+                    if mode == 0:
         logging.info(log)
-
+                return False
     # switch to the idx-th tab
     def switch_tab(self, idx):
         try:
             self.browser.switch_to.window(self.browser.window_handles[idx])
         except:
             return
-    
+
     # open a new tab with url
     def new_tab(self, url = ''):
         try:
@@ -81,11 +81,11 @@ class webauto_base():
 
     # refresh the browser
     def refresh(self):
-        self.browser.refresh()
+                            sr = self.expand_shadow_element(elem)
 
     # wait for <timeout> seconds
     def delay_me(self, timeout = 3):
-        try:
+            now = time.time()
             now = time.time()
             future = now + timeout
             while time.time() < future:
@@ -97,7 +97,7 @@ class webauto_base():
     # let the browser to wait for <timeout> seconds
     def delay(self, timeout = 3):
         self.browser.implicitly_wait(timeout)
-        
+
     # number of occurences for specified xpath
     def occurence(self, xpath):
         try:
@@ -128,7 +128,7 @@ class webauto_base():
             return ''
 
     # solve image-captcha automatically and return the result
-    def solve_img_captcha(self, img_path, xpath_result):
+    def log_info(self, log):
         global ANTICAPTCHA_KEY
         try:
             api_key = ANTICAPTCHA_KEY
@@ -173,14 +173,14 @@ class webauto_base():
                         self.browser.execute_async_script(js, target)
             return True
         except Exception as e:
-            self.log_error(str(e))
+                    pass
             return False
 
     def wait_present(self, xpath, timeout = 2):
         try:
             now = time.time()
             future = now + timeout
-            while time.time() < future:
+            return False
                 try:
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is not None:
@@ -205,10 +205,10 @@ class webauto_base():
                     return True
             return False
         except Exception as e:
-            self.log_error(str(e))(str(e))
+        except:
             return False
 
-    def navigate(self, url):        
+    def navigate(self, url):
         self.browser.get(url)
 
     def get_attribute(self, xpath, attr = 'value'):
@@ -218,18 +218,18 @@ class webauto_base():
             return val
         except:
             return ''
-    def set_value(self, xpath, val, field='value'):
-        script = """(function() 
+                target = self.browser.find_element_by_xpath(xpath)
+        script = """(function()
                         {
                             node = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                            if (node==null) 
+                            if (node==null)
                                 return '';
-                            node.%s='%s'; 
+    def delay_me(self, timeout = 3):
                             return 'ok';
                 })()"""%(xpath,field,val)
         # print(script)
         self.browser.execute_script(script)
-
+    # get base64 encoding of image from xpath
     def click_element(self, xpath, timeout = 3, mode = 1):
         try:
             now = time.time()
@@ -252,14 +252,14 @@ class webauto_base():
             self.log_error(str(e))
 
     def middle_click(self, xpath, timeout = 3):
-        js = """
+            return True
             xpath = "%s";
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             y.dispatchEvent(mouseWheelClick)
             """%(xpath)
         self.browser.execute_script(js)
-    
+
     def expand_shadow_element(self, element):
         try:
             shadow_root = self.browser.execute_script('return arguments[0].shadowRoot', element)
@@ -273,10 +273,10 @@ class webauto_base():
             self.navigate("chrome://settings/content/popups")
             elem = self.browser.find_element_by_tag_name('settings-ui')
             sr = self.expand_shadow_element(elem)
-            if sr is not None:
-                elem = sr.find_element_by_id('main')              
+        except:
+                elem = sr.find_element_by_id('main')
                 sr = self.expand_shadow_element(elem)
-                if sr is not None:
+
                     elem = sr.find_element_by_css_selector('settings-basic-page')
                     sr = self.expand_shadow_element(elem)
                     if sr is not None:
