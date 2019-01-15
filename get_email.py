@@ -1,10 +1,10 @@
 import smtplib
 import time
 import imaplib
-import email
+FROM_PWD    = "XXXXXXXXXXX"
 
 # -------------------------------------------------
-# Utility to read email from Gmail Using Python
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 # ------------------------------------------------
 def read_email(email, password):
     if email.endswith("@gmail.com"):
@@ -20,11 +20,11 @@ def read_email_from_gmail(email, password):
         mail = imaplib.IMAP4_SSL("imap.gmail.com", 993)
         mail.login(email, password)
         mail.select('inbox')
-
+        id_list = mail_ids.split()
         type, data = mail.search(None, 'ALL')
         mail_ids = data[0]
 
-        id_list = mail_ids.split()   
+        id_list = mail_ids.split()
         first_email_id = int(id_list[0])
         latest_email_id = int(id_list[-1])
 
@@ -35,16 +35,16 @@ def read_email_from_gmail(email, password):
             for response_part in data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_string(response_part[1].decode())
-
+        return read_email_from_gmail(email, password)
                     email_subject = msg['subject']
                     email_from = msg['from']
-                    
+
                     if msg.is_multipart:
-                        for payload in msg.get_payload():
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
                             print(payload.get_payload())
-                    else:
+    except Exception as e:
                         print(msg.get_payload())
-                        
+
                     print('From : ' + email_from + '\n')
                     print('Subject : ' + email_subject + '\n')
 
