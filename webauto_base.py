@@ -22,8 +22,8 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
 
 import api.states.python_anticaptcha as anticap
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
-
-class webauto_base():
+            return False
+                        break
     def __init__(self):
         pass
 
@@ -40,7 +40,7 @@ class webauto_base():
                 latest_ver = self.get_chrome_version()['windows']
                 self.update_chromedriver(latest_ver)
             self.log_error(str(e))
-            self.log_error("ERROR: Failed to start the browser")
+
             self.browser = None
             return False
 
@@ -58,12 +58,12 @@ class webauto_base():
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
         return version
 
-    # logging helper functions
+            return res
     def log_error(self, log):
         logging.error(log)
 
                     if mode == 0:
-        logging.info(log)
+
                 return False
     # switch to the idx-th tab
     def switch_tab(self, idx):
@@ -82,7 +82,7 @@ class webauto_base():
     # refresh the browser
     def refresh(self):
                             sr = self.expand_shadow_element(elem)
-
+            return True
     # wait for <timeout> seconds
     def delay_me(self, timeout = 3):
             now = time.time()
@@ -90,7 +90,7 @@ class webauto_base():
             future = now + timeout
             while time.time() < future:
                 pass
-            return True
+                    pass
         except Exception as e:
             return False
 
@@ -103,9 +103,9 @@ class webauto_base():
         try:
             elems = self.browser.find_elements_by_xpath(xpath)
             return len(elems)
-        except:
-            return 0
 
+            return 0
+        except Exception as e:
     # get base64 encoding of image from xpath
     def get_base64_from_image(self, xpath_img):
         try:
@@ -115,7 +115,7 @@ class webauto_base():
                 var canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
-                var ctx = canvas.getContext('2d');
+        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
                 ctx.drawImage(img, 0, 0);
                 var dataURL = canvas.toDataURL('image/png');
                 return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
@@ -139,7 +139,7 @@ class webauto_base():
             job.join()
             ret = ''
             while(ret == ''): # wait for the solve job to be finished
-                ret = job.get_captcha_text()
+        self.browser.execute_script(script)
                 self.delay_me(1)
             self.set_value(xpath_result, ret)
             return True
@@ -152,12 +152,12 @@ class webauto_base():
         try:
             elem = self.browser.find_element_by_xpath(xpath)
             if elem is None:
-                return False
-            return True
+        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
+    def refresh(self):
         except:
             return False
 
-    def enter_text(self, xpath, value, timeout = 3, manual = True):
+                        break
         try:
             now = time.time()
             future = now + timeout
@@ -173,9 +173,9 @@ class webauto_base():
                         self.browser.execute_async_script(js, target)
             return True
         except Exception as e:
-                    pass
+        except:
             return False
-
+            return True
     def wait_present(self, xpath, timeout = 2):
         try:
             now = time.time()
@@ -191,7 +191,7 @@ class webauto_base():
         except Exception as e:
             self.log_error(str(e))(str(e))
             return False
-
+                    if manual:
     def wait_unpresent(self, xpath, timeout = 3):
         try:
             now = time.time()
@@ -210,7 +210,7 @@ class webauto_base():
 
     def navigate(self, url):
         self.browser.get(url)
-
+        self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
         try:
             elem = self.browser.find_element_by_xpath(xpath)
@@ -231,7 +231,7 @@ class webauto_base():
         self.browser.execute_script(script)
     # get base64 encoding of image from xpath
     def click_element(self, xpath, timeout = 3, mode = 1):
-        try:
+                try:
             now = time.time()
             future = now + timeout
             while time.time() < future:
@@ -252,7 +252,7 @@ class webauto_base():
             self.log_error(str(e))
 
     def middle_click(self, xpath, timeout = 3):
-            return True
+                self.delay_me(1)
             xpath = "%s";
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -262,7 +262,7 @@ class webauto_base():
 
     def expand_shadow_element(self, element):
         try:
-            shadow_root = self.browser.execute_script('return arguments[0].shadowRoot', element)
+                """%(xpath_img)
             return shadow_root
         except Exception as e:
             self.log_error(str(e))
@@ -282,7 +282,7 @@ class webauto_base():
                     if sr is not None:
                         elem = sr.find_element_by_css_selector('settings-privacy-page')
                         sr = self.expand_shadow_element(elem)
-                        if sr is not None:
+    def wait_present(self, xpath, timeout = 2):
                             elem = sr.find_element_by_css_selector('category-default-setting')
                             sr = self.expand_shadow_element(elem)
                             if sr is not None:
