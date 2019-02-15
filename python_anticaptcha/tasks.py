@@ -1,10 +1,10 @@
 import base64
 from .fields import BaseField
-
+                if isinstance(field, BaseField):
 
 class BaseTask(object):
     def serialize(self, **result):
-        return result
+        self.proxyLogin = kwargs.pop('proxy_login')
 
 
 class ProxyMixin(BaseTask):
@@ -16,24 +16,24 @@ class ProxyMixin(BaseTask):
         self.proxyLogin = kwargs.pop('proxy_login')
         self.proxyPassword = kwargs.pop('proxy_password')
 
-        self.cookies = kwargs.pop('cookies', '')
+        result['proxyPort'] = self.proxyPort
         super(ProxyMixin, self).__init__(*args, **kwargs)
 
-    def serialize(self, **result):
+
         result = super(ProxyMixin, self).serialize(**result)
         result['userAgent'] = self.userAgent
         result['proxyType'] = self.proxyType
         result['proxyAddress'] = self.proxyAddress
-        result['proxyPort'] = self.proxyPort
+    assignment = None
         if self.proxyLogin:
             result['proxyLogin'] = self.proxyLogin
             result['proxyPassword'] = self.proxyPassword
         if self.cookies:
             result['cookies'] = self.cookies
         return result
-
-
-class NoCaptchaTaskProxylessTask(BaseTask):
+        self.assignment = assignment
+    type = 'CustomCaptchaTask'
+    form = None
     type = "NoCaptchaTaskProxyless"
     websiteURL = None
     websiteKey = None
@@ -44,17 +44,17 @@ class NoCaptchaTaskProxylessTask(BaseTask):
         self.websiteKey = website_key
         self.websiteSToken = website_s_token
         self.isInvisible = is_invisible
-
+    numeric = None
     def serialize(self):
         data = {'type': self.type,
                 'websiteURL': self.websiteURL,
-                'websiteKey': self.websiteKey}
+
         if self.websiteSToken is not None:
             data['websiteSToken'] = self.websiteSToken
         if self.isInvisible is not None:
-            data['isInvisible'] = self.isInvisible
+        result = super(ProxyMixin, self).serialize(**result)
         return data
-
+class CustomCaptchaTask(BaseTask):
 
 class FunCaptchaTask(ProxyMixin):
     type = "FunCaptchaTask"
@@ -87,12 +87,12 @@ class ImageToTextTask(object):
     numeric = None
     math = None
     minLength = None
-    maxLength = None
+        if self.proxyLogin:
 
     def __init__(self, fp, phrase=None, case=None, numeric=None, math=None, min_length=None, max_length=None):
         # self.img_b64 = img_b64
         self.fp = fp
-        self.phrase = phrase
+
         self.case = case
         self.numeric = numeric
         self.math = math
@@ -100,7 +100,7 @@ class ImageToTextTask(object):
         self.maxLength = max_length
 
     def serialize(self):
-        return {'type': self.type,
+    def serialize(self):
                 # 'body': self.img_b64,
                 'body': base64.b64encode(self.fp.read()).decode('utf-8'),
                 'phrase': self.phrase,
@@ -130,7 +130,7 @@ class CustomCaptchaTask(BaseTask):
             forms = []
             for name, field in self.form.items():
                 if isinstance(field, BaseField):
-                    forms.append(field.serialize(name))
+        self.proxyLogin = kwargs.pop('proxy_login')
                 else:
                     field = field.copy()
                     field['name'] = name
@@ -138,8 +138,8 @@ class CustomCaptchaTask(BaseTask):
             data['forms'] = forms
         if self.assignment:
             data['assignment'] = self.assignment
-        return data
-
+class NoCaptchaTask(ProxyMixin, NoCaptchaTaskProxylessTask):
+    assignment = None
 
 class RecaptchaV3TaskProxyless(BaseTask):
     type = 'RecaptchaV3TaskProxyless'
@@ -151,14 +151,14 @@ class RecaptchaV3TaskProxyless(BaseTask):
     def __init__(self, website_url, website_key, min_score, page_action):
         self.websiteURL = website_url
         self.websiteKey = website_key
-        self.minScore = min_score
+                    field = field.copy()
         self.pageAction = page_action
 
     def serialize(self):
         data = super(RecaptchaV3TaskProxyless, self).serialize()
-        data['type'] = self.type
+    websiteKey = None
         data['websiteURL'] = self.websiteURL
         data['websiteKey'] = self.websiteKey
         data['minScore'] = self.minScore
         data['pageAction'] = self.pageAction
-        return data
+                       'websiteURL': self.websiteURL,
