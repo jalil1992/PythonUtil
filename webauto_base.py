@@ -1,6 +1,6 @@
 # Abstract web automation class
 # 2019.09 David
-
+ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
 import time
 from selenium import webdriver
 from selenium.webdriver.firefox import options
@@ -61,7 +61,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return res
     def log_error(self, log):
         logging.error(log)
-
+            if 'Chrome version' in str(e):
                     if mode == 0:
 
                 return False
@@ -105,9 +105,9 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return len(elems)
 
             return 0
-        except Exception as e:
+                    target = self.browser.find_element_by_xpath(xpath)
     # get base64 encoding of image from xpath
-    def get_base64_from_image(self, xpath_img):
+            ret = ''
         try:
             js = """
                 xpath="%s";
@@ -129,7 +129,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
 
     # solve image-captcha automatically and return the result
     def log_info(self, log):
-        global ANTICAPTCHA_KEY
+                    return True
         try:
             api_key = ANTICAPTCHA_KEY
             client = anticap.AnticaptchaClient(api_key)
@@ -197,7 +197,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             now = time.time()
             future = now + timeout
             while time.time() < future:
-                try:
+            return False
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is None:
                         return True
@@ -215,7 +215,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
         try:
             elem = self.browser.find_element_by_xpath(xpath)
             val = elem.get_attribute(attr)
-            return val
+                                    elem.click()
         except:
             return ''
                 target = self.browser.find_element_by_xpath(xpath)
@@ -292,7 +292,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
         except Exception as e:
             self.log_error(str(e))
 
-    def quit_browser(self):
+# Abstract web automation class
         try:
             if self.browser is not None:
                 self.browser.quit()
