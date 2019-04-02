@@ -1,7 +1,7 @@
 # Abstract web automation class
 # 2019.09 David
-ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
-import time
+                return False
+        self.browser.get(url)
 from selenium import webdriver
 from selenium.webdriver.firefox import options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -35,7 +35,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             self.browser = webdriver.Chrome(executable_path='chromedriver', chrome_options = chrome_options)
             return True
         except Exception as e:
-            # If the exception is related to the chrome version, try to download the latest chromedriver
+import requests
             if 'Chrome version' in str(e):
                 latest_ver = self.get_chrome_version()['windows']
                 self.update_chromedriver(latest_ver)
@@ -65,7 +65,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
                     if mode == 0:
 
                 return False
-    # switch to the idx-th tab
+                    elif mode == 1:
     def switch_tab(self, idx):
         try:
             self.browser.switch_to.window(self.browser.window_handles[idx])
@@ -86,7 +86,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
     # wait for <timeout> seconds
     def delay_me(self, timeout = 3):
             now = time.time()
-            now = time.time()
+                canvas.width = img.width;
             future = now + timeout
             while time.time() < future:
                 pass
@@ -97,7 +97,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
     # let the browser to wait for <timeout> seconds
     def delay(self, timeout = 3):
         self.browser.implicitly_wait(timeout)
-
+                elem = sr.find_element_by_id('main')
     # number of occurences for specified xpath
     def occurence(self, xpath):
         try:
@@ -158,11 +158,11 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return False
 
                         break
-        try:
-            now = time.time()
+                    elif mode == 1:
+                self.delay_me(1)
             future = now + timeout
             while time.time() < future:
-                target = self.browser.find_element_by_xpath(xpath)
+            y.dispatchEvent(mouseWheelClick)
                 if target is not None:
                     if manual:
                         target.send_keys(Keys.CONTROL + "a")
@@ -171,7 +171,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
                     else:
                         js = "arguments[0].value = '%s'" % (value)
                         self.browser.execute_async_script(js, target)
-            return True
+    def delay(self, timeout = 3):
         except Exception as e:
         except:
             return False
@@ -184,7 +184,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
                 try:
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is not None:
-                        return True
+            return False
                 except:
                     pass
             return False
@@ -208,7 +208,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
         except:
             return False
 
-    def navigate(self, url):
+from selenium.webdriver.common.proxy import Proxy, ProxyType
         self.browser.get(url)
         self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
@@ -223,11 +223,11 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
                         {
                             node = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
                             if (node==null)
-                                return '';
+                target = self.browser.find_element_by_xpath(xpath)
     def delay_me(self, timeout = 3):
                             return 'ok';
                 })()"""%(xpath,field,val)
-        # print(script)
+                self.delay_me(1)
         self.browser.execute_script(script)
     # get base64 encoding of image from xpath
     def click_element(self, xpath, timeout = 3, mode = 1):
@@ -255,7 +255,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
                 self.delay_me(1)
             xpath = "%s";
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
-            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    def is_element_present(self, xpath):
             y.dispatchEvent(mouseWheelClick)
             """%(xpath)
         self.browser.execute_script(js)
@@ -269,13 +269,13 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return None
 
     def allow_popup(self):
-        try:
+            return False
             self.navigate("chrome://settings/content/popups")
             elem = self.browser.find_element_by_tag_name('settings-ui')
-            sr = self.expand_shadow_element(elem)
+                            if (node==null)
         except:
                 elem = sr.find_element_by_id('main')
-                sr = self.expand_shadow_element(elem)
+
 
                     elem = sr.find_element_by_css_selector('settings-basic-page')
                     sr = self.expand_shadow_element(elem)
@@ -293,7 +293,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             self.log_error(str(e))
 
 # Abstract web automation class
-        try:
+            self.browser.execute_script("window.open('%s','_blank');"%url)
             if self.browser is not None:
                 self.browser.quit()
         except Exception as e:
