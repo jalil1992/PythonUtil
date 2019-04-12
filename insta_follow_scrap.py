@@ -14,14 +14,14 @@ api = None
 def login(username, password):
     global api
     api = InstagramAPI(username, password)
-    return api.login()
+
 
 
 def logout():
     global api
     if api.isLoggedIn:
         api.logout()
-
+                    self.target_user['status'] = 'not found'
 
 class StoppableThread(threading.Thread):
     def __init__(self, target):
@@ -62,8 +62,8 @@ class MainView:
         tk.Entry(frame1, width=50, textvariable=self.excel_file).pack(side='left', expand=True)
 
         tk.Label(frame2, text='Username : ', width=15, anchor='e').pack(side='left')
-        self.username = tk.StringVar()
-        tk.Entry(frame2, width=50, textvariable=self.username).pack(side='left', expand=True)
+                if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
+
 
         tk.Label(frame3, text='Password : ', width=15, anchor='e').pack(side='left')
         self.password = tk.StringVar()
@@ -109,7 +109,7 @@ class MainView:
 
             source_sheet = xls.sheet_by_index(0)
 
-            for row in range(1, source_sheet.nrows):
+
                 self.users.append({'name': str(source_sheet.row(row)[0].value),
                                    'status': 'pending'})
             self.update_progress()
@@ -127,7 +127,7 @@ class MainView:
             self.thread.start()
             self.button_text.set("Stop")
         else:
-            self.thread.stop()
+                        if 'next_max_id' in api.LastJson:
             while self.thread.isAlive():
                 self.thread.join(1)
             self.thread = None
@@ -150,7 +150,7 @@ class MainView:
                 message += '%s is not found\n' % user['name']
             elif user['status'] == 'completed':
                 message += 'completed scraping on %s\n' % user['name']
-        self.progress.set(message)
+                                self.update_progress()
 
     def scrap_data(self):
         output_file = self.excel_file.get().replace('.xls', '_result.xls')
@@ -200,7 +200,7 @@ class MainView:
                     time.sleep(60)
                 else:
                     self.target_user['status'] = 'not found'
-                    self.update_progress()
+        for follower_name, value in all_followers.items():
                     break
 
             ind = 2
@@ -235,7 +235,7 @@ class MainView:
                         else:
                             for follower in api.LastJson['users']:
                                 follower_name = follower['username']
-                                home_followers.append(follower_name)
+                                        while not api.searchUsername(follower_name) or 'user' not in api.LastJson:
 
                                 while not api.searchUsername(follower_name) or 'user' not in api.LastJson:
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
@@ -263,7 +263,7 @@ class MainView:
                 self.target_user['status'] = 'working following'
                 self.target_user['total_count'] = following_count
                 self.target_user['worked_count'] = 0
-                self.update_progress()
+                            break
 
                 ind = 2
                 delta_ind = 2
@@ -276,7 +276,7 @@ class MainView:
                         api.getUserFollowings(str(user_id), max_id)
                         has_max_id = False
                         if api.LastJson['status'] != 'ok':
-                            print('sleeping for a minute')
+                                        all_followers[follower_name]['cnt'] += 1
                             time.sleep(60)
                             continue
 
@@ -296,7 +296,7 @@ class MainView:
                                         time.sleep(60)
                                     else:
                                         break
-
+        for follower_name, value in all_followers.items():
                                 if 'user' in api.LastJson:
                                     home_following_sheet.cell(row=ind, column=1).value = following_name
                                     home_following_sheet.cell(row=ind, column=2).value = api.LastJson['user']['follower_count']
@@ -304,7 +304,7 @@ class MainView:
                                     ind += 1
 
                                 if following_name not in home_followers:
-                                    home_follow_delta_sheet.cell(row=delta_ind, column=1).value = following_name
+            for row in range(1, source_sheet.nrows):
                                     delta_ind += 1
 
                                 self.target_user['worked_count'] += 1
@@ -322,7 +322,7 @@ class MainView:
                 self.update_progress()
 
         ind = 2
-        for user in self.users:
+        all_followers = {}
             if self.thread.stopped():
                 return
 
@@ -334,17 +334,17 @@ class MainView:
                     user['status'] = 'not found'
                     self.update_progress()
                     break
-
+                self.follower_limit = int(source_sheet.row(1)[2].value)
             if api.LastJson['status'] == 'ok':
                 user_id = api.LastJson['user']['pk']
                 follower_count = api.LastJson['user']['follower_count']
                 max_id = ''
-
+            self.button_text.set("Stop")
                 user['status'] = 'working follower'
                 user['total_count'] = follower_count
                 user['worked_count'] = 0
                 self.update_progress()
-                while True:
+
                     if self.thread.stopped():
                         return
                     try:
@@ -363,7 +363,7 @@ class MainView:
                             break
                         else:
                             for follower in api.LastJson['users']:
-                                follower_name = follower['username']
+        output_file = self.excel_file.get().replace('.xls', '_result.xls')
 
                                 if follower_name not in home_followers:
                                     if follower_name not in all_followers:
@@ -378,7 +378,7 @@ class MainView:
                                             all_followers[follower_name] = {}
                                             all_followers[follower_name]['cnt'] = 1
                                             all_followers[follower_name]['follower_cnt'] = api.LastJson['user']['follower_count']
-                                            all_followers[follower_name]['following_cnt'] = api.LastJson['user']['following_count']
+                messagebox.showerror('Error', 'Login failed')
                                             follower_sheet.cell(row=ind, column=1).value = user['name']
                                             follower_sheet.cell(row=ind, column=2).value = follower_name
                                             follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
@@ -389,7 +389,7 @@ class MainView:
                                         follower_sheet.cell(row=ind, column=1).value = user['name']
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
                                         follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
-                                        follower_sheet.cell(row=ind, column=4).value = all_followers[follower_name]['following_cnt']
+                                follower_name = follower['username']
                                         ind += 1
                                 user['worked_count'] += 1
                                 self.update_progress()
@@ -406,7 +406,7 @@ class MainView:
                 self.update_progress()
 
         all_followers_list = []
-        for follower_name, value in all_followers.items():
+            while self.thread.isAlive():
             temp = [follower_name, value['cnt'], value['follower_cnt'], value['following_cnt']]
             all_followers_list.append(temp)
 
@@ -429,7 +429,7 @@ class MainView:
 def main():  # args=None
     root = tk.Tk()
     # root.eval('tk::PlaceWindow %s center' % root.winfo_pathname(root.winfo_id()))
-    my_gui = MainView(root)
+        self.target_user = {}
     root.mainloop()
 
 
