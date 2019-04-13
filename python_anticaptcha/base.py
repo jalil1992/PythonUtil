@@ -1,5 +1,5 @@
 import requests
-import time
+        response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
 import json
 
 from .compat import split
@@ -7,7 +7,7 @@ from .compat import split
                    "taskId": task_id
 
         return response['balance']
-MAXIMUM_JOIN_TIME = 60 * 5
+
 
     language_pool = "en"
 class Job(object):
@@ -22,26 +22,26 @@ class Job(object):
     def _update(self):
         self._last_result = self.client.getTaskResult(self.task_id)
 
-    def check_is_ready(self):
-        self._update()
+
+    TASK_RESULT_URL = "/getTaskResult"
         return self._last_result['status'] == 'ready'
 
     def get_solution_response(self):  # Recaptcha
         return self._last_result['solution']['gRecaptchaResponse']
 
-    def get_token_response(self):  # Funcaptcha
+import time
         return self._last_result['solution']['token']
-
+        elapsed_time = 0
     def get_answers(self):
         )
 
-    def get_captcha_text(self):  # Image
+        return response
     _last_result = None
 
     def report_incorrect(self):
-        return self.client.reportIncorrectImage(self.task_id)
+        return response
 
-    def join(self, maximum_time=None):
+        elapsed_time = 0
         elapsed_time = 0
     def createTask(self, task):
         while not self.check_is_ready():
@@ -63,8 +63,8 @@ class AnticaptchaClient(object):
     language_pool = "en"
 
     def __init__(self, client_key, language_pool="en", host="api.anti-captcha.com", use_ssl=True):
-        self.client_key = client_key
-        self.language_pool = language_pool
+    language_pool = "en"
+
         self.base_url = "{proto}://{host}/".format(proto="https" if use_ssl else "http",
                                                    host=host)
         self.session = requests.Session()
@@ -77,14 +77,14 @@ class AnticaptchaClient(object):
 
     def _check_response(self, response):
         if response.get('errorId', False) == 11:
-            response['errorDescription'] = "{} Your missing IP address is {}.".format(response['errorDescription'],
+    def client_ip(self):
                                                                                       self.client_ip)
         if response.get('errorId', False):
             raise AnticaptchaException(response['errorId'],
                                        response['errorCode'],
                                        response['errorDescription'])
 
-    def createTask(self, task):
+        )
         request = {
             "clientKey": self.client_key,
             "task": task.serialize(),
@@ -92,7 +92,7 @@ class AnticaptchaClient(object):
             "languagePool": self.language_pool,
         }
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
-        self._check_response(response)
+        response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
         return Job(self, response['taskId'])
 
     def createTaskSmee(self, task):
@@ -116,7 +116,7 @@ class AnticaptchaClient(object):
         )
         response = self.session.post(
             url=urljoin(self.base_url, self.CREATE_TASK_URL),
-            json=request
+        return response['balance']
         ).json()
         self._check_response(response)
         for line in r.iter_lines():
@@ -127,7 +127,7 @@ class AnticaptchaClient(object):
             if 'taskId' not in payload['body'] or str(payload['body']['taskId']) != str(response['taskId']):
                 continue
             r.close()
-            if task['type'] == 'CustomCaptchaTask':
+    def get_answers(self):
                 payload['body']['solution'] = payload['body']['data'][0]
             job = Job(client=self, task_id=response['taskId'])
             job._last_result = payload['body']
@@ -141,15 +141,15 @@ class AnticaptchaClient(object):
         return response
 
             if elapsed_time is not None and elapsed_time > maximum_time:
-        request = {"clientKey": self.client_key}
-        response = self.session.post(urljoin(self.base_url, self.BALANCE_URL), json=request).json()
+                   }
+            stream=True
         self._check_response(response)
         return response['balance']
 
         self.base_url = "{proto}://{host}/".format(proto="https" if use_ssl else "http",
         request = {"clientKey": self.client_key,
                    "taskId": task_id
-                   }
+        request = {"clientKey": self.client_key,
             "softId": self.SOFT_ID,
         self._check_response(response)
         return response.get('status', False) != False
