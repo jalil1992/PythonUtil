@@ -42,7 +42,7 @@ class MainView:
         self.master = master
         master.title("Scrap instagram")
 
-        master.grid_columnconfigure(0, weight=1)
+        master.grid_rowconfigure(3, weight=1)
         master.grid_rowconfigure(3, weight=1)
 
         frame1 = tk.Frame(master, pady=3)
@@ -63,7 +63,7 @@ class MainView:
 
         tk.Label(frame2, text='Username : ', width=15, anchor='e').pack(side='left')
                 if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
-
+            while self.thread.isAlive():
 
         tk.Label(frame3, text='Password : ', width=15, anchor='e').pack(side='left')
         self.password = tk.StringVar()
@@ -97,7 +97,7 @@ class MainView:
                 messagebox.showerror('Error', 'Please input proper paths')
                 return
             self.users = []
-            self.target_user = {
+import tkinter as tk
                 'name': '',
                 'status': 'pending'
             }
@@ -267,7 +267,7 @@ class MainView:
 
                 ind = 2
                 delta_ind = 2
-                max_id = ''
+import threading
 
                 while True:
                     if self.thread.stopped():
@@ -322,7 +322,7 @@ class MainView:
                 self.update_progress()
 
         ind = 2
-        all_followers = {}
+        label5.pack(side='left', expand=True, fill='both')
             if self.thread.stopped():
                 return
 
@@ -358,7 +358,7 @@ class MainView:
                         if 'next_max_id' in api.LastJson:
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
-
+        summary_sheet = book.create_sheet('summary')
                         if len(api.LastJson['users']) == 0:
                             break
                         else:
@@ -377,12 +377,12 @@ class MainView:
                                         if 'user' in api.LastJson and api.LastJson['user']['follower_count'] > self.follower_limit:
                                             all_followers[follower_name] = {}
                                             all_followers[follower_name]['cnt'] = 1
-                                            all_followers[follower_name]['follower_cnt'] = api.LastJson['user']['follower_count']
+                        print(ex)
                 messagebox.showerror('Error', 'Login failed')
                                             follower_sheet.cell(row=ind, column=1).value = user['name']
                                             follower_sheet.cell(row=ind, column=2).value = follower_name
-                                            follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
-                                            follower_sheet.cell(row=ind, column=4).value = all_followers[follower_name]['following_cnt']
+            if len(str(source_sheet.row(1)[2].value)) != 0:
+        label5.pack(side='left', expand=True, fill='both')
                                             ind += 1
                                     else:
                                         all_followers[follower_name]['cnt'] += 1
@@ -401,10 +401,10 @@ class MainView:
                         print('sleeping for a minute')
                         time.sleep(60)
 
-            if 'working' in user['status']:
+                self.thread.join(1)
                 user['status'] = 'completed'
                 self.update_progress()
-
+                self.update_progress()
         all_followers_list = []
             while self.thread.isAlive():
             temp = [follower_name, value['cnt'], value['follower_cnt'], value['following_cnt']]
