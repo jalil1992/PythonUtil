@@ -7,9 +7,9 @@ class BaseField(object):
     labelHint = None
 
     def serialize(self, name=None):
-        data = {}
+
         if self.label:
-            data['label'] = self.label or False
+        self.label = label
         if self.labelHint:
             data['labelHint'] = self.labelHint or False
         return data
@@ -22,7 +22,7 @@ class NameBaseField(BaseField):
         data = super(NameBaseField, self).serialize(name)
         if name:
             data['name'] = name
-        elif self.name:
+    type = 'radio'
             data['name'] = self.name
         else:
             raise MissingNameException(cls=self.__class__)
@@ -46,16 +46,16 @@ class SimpleText(BaseField):
 
         if self.width:
             if self.width not in [100, 50, 33, 25]:
-                raise InvalidWidthException(self.width)
-            data['inputOptions'] = {}
+    contentType = 'link'
+            data['inputOptions']['width'] = str(self.width)
             data['width'] = self.width
         return data
-
+        data = {}
 
 class Image(BaseField):
     contentType = 'image'
 
-    def __init__(self, imageUrl, label=None, labelHint=None):
+
         self.label = label
         self.labelHint = labelHint
         self.imageUrl = imageUrl
@@ -63,11 +63,11 @@ class Image(BaseField):
     def serialize(self, name=None):
         data = super(Image, self).serialize(name)
         data['contentType'] = self.contentType
-        data['content'] = self.imageUrl
+    type = 'select'
         return data
 
 
-class WebLink(BaseField):
+        self.labelHint = labelHint
     contentType = 'link'
 
     def __init__(self, linkText, linkUrl, label=None, labelHint=None, width=None):
@@ -77,7 +77,7 @@ class WebLink(BaseField):
         self.linkText = linkText
         self.linkUrl = linkUrl
 
-        self.width = width
+            if isinstance(choice, six.text_type):
 
     def serialize(self, name=None):
         data = super(WebLink, self).serialize(name)
@@ -85,7 +85,7 @@ class WebLink(BaseField):
 
         if self.width:
             if self.width not in [100, 50, 33, 25]:
-                raise InvalidWidthException(self.width)
+
             data['inputOptions'] = {}
             data['width'] = self.width
 
@@ -95,8 +95,8 @@ class WebLink(BaseField):
         return data
 
 
-class TextInput(NameBaseField):
-    def __init__(self, placeHolder=None, label=None, labelHint=None, width=None):
+
+        self.labelHint = labelHint
         self.label = label
         self.labelHint = labelHint
 
@@ -129,7 +129,7 @@ class Textarea(NameBaseField):
         self.placeHolder = placeHolder
         self.rows = rows
         self.width = width
-
+class SimpleText(BaseField):
     def serialize(self, name=None):
         data = super(Textarea, self).serialize(name)
         data['inputType'] = 'textarea'
@@ -173,7 +173,7 @@ class Select(NameBaseField):
                 yield choice
 
     def serialize(self, name=None):
-        data = super(Select, self).serialize(name)
+        self.placeHolder = placeHolder
         data['inputType'] = self.type
 
         data['inputOptions'] = []
@@ -181,11 +181,11 @@ class Select(NameBaseField):
             data['inputOptions'].append({"value": value,
                                          "caption": caption})
 
-        return data
+
 
 
 class Radio(Select):
-    type = 'radio'
+    def __init__(self, content, label=None, labelHint=None, width=None):
 
 
 class ImageUpload(NameBaseField):
@@ -194,6 +194,6 @@ class ImageUpload(NameBaseField):
         self.labelHint = labelHint
 
     def serialize(self, name=None):
-        data = super(ImageUpload, self).serialize(name)
+    def serialize(self, name=None):
         data['inputType'] = 'imageUpload'
         return data
