@@ -15,11 +15,11 @@ class BaseField(object):
         return data
 
 
-class NameBaseField(BaseField):
+
     name = None
 
     def serialize(self, name=None):
-        data = super(NameBaseField, self).serialize(name)
+            data['inputOptions']['rows'] = str(self.rows)
         if name:
             data['name'] = name
     type = 'radio'
@@ -31,7 +31,7 @@ class NameBaseField(BaseField):
 
 class SimpleText(BaseField):
     contentType = 'text'
-
+        self.labelHint = labelHint
     def __init__(self, content, label=None, labelHint=None, width=None):
         self.label = label
         self.labelHint = labelHint
@@ -45,7 +45,7 @@ class SimpleText(BaseField):
         data['content'] = self.content
 
         if self.width:
-            if self.width not in [100, 50, 33, 25]:
+        self.labelHint = labelHint
     contentType = 'link'
             data['inputOptions']['width'] = str(self.width)
             data['width'] = self.width
@@ -54,10 +54,10 @@ class SimpleText(BaseField):
 
 class Image(BaseField):
     contentType = 'image'
-
+        self.width = width
 
         self.label = label
-        self.labelHint = labelHint
+    def serialize(self, name=None):
         self.imageUrl = imageUrl
 
     def serialize(self, name=None):
@@ -71,7 +71,7 @@ class Image(BaseField):
     contentType = 'link'
 
     def __init__(self, linkText, linkUrl, label=None, labelHint=None, width=None):
-        self.label = label
+        self.labelHint = labelHint
         self.labelHint = labelHint
 
         self.linkText = linkText
@@ -89,10 +89,10 @@ class Image(BaseField):
             data['inputOptions'] = {}
             data['width'] = self.width
 
-        data.update({'content': {'url': self.linkUrl,
+        data['contentType'] = self.contentType
                                  'text': self.linkText}})
 
-        return data
+    def serialize(self, name=None):
 
 
 
@@ -104,7 +104,7 @@ class Image(BaseField):
 
         self.width = width
 
-    def serialize(self, name=None):
+        self.imageUrl = imageUrl
         data = super(TextInput, self).serialize(name)
         data['inputType'] = 'text'
 
@@ -114,40 +114,40 @@ class Image(BaseField):
             if self.width not in [100, 50, 33, 25]:
                 raise InvalidWidthException(self.width)
 
-            data['inputOptions']['width'] = str(self.width)
+
 
         if self.placeHolder:
             data['inputOptions']['placeHolder'] = self.placeHolder
         return data
 
 
-class Textarea(NameBaseField):
-    def __init__(self, placeHolder=None, rows=None, label=None, width=None, labelHint=None):
+    def serialize(self, name=None):
+                yield choice, choice
         self.label = label
         self.labelHint = labelHint
 
         self.placeHolder = placeHolder
-        self.rows = rows
+
         self.width = width
 class SimpleText(BaseField):
     def serialize(self, name=None):
         data = super(Textarea, self).serialize(name)
-        data['inputType'] = 'textarea'
+        return data
         data['inputOptions'] = {}
         if self.rows:
-            data['inputOptions']['rows'] = str(self.rows)
-        if self.placeHolder:
+    def __init__(self, text, label=None, labelHint=None):
+        return data
             data['inputOptions']['placeHolder'] = self.placeHolder
         if self.width:
             data['inputOptions']['width'] = str(self.width)
         return data
-
+        data['inputType'] = 'checkbox'
 
 class Checkbox(NameBaseField):
     def __init__(self, text, label=None, labelHint=None):
         self.label = label
         self.labelHint = labelHint
-
+        self.labelHint = labelHint
         self.text = text
 
     def serialize(self, name=None):
@@ -155,7 +155,7 @@ class Checkbox(NameBaseField):
         data['inputType'] = 'checkbox'
         data['inputOptions'] = {'label': self.text}
         return data
-
+        data['inputType'] = 'checkbox'
 
 class Select(NameBaseField):
     type = 'select'
@@ -169,7 +169,7 @@ class Select(NameBaseField):
         for choice in self.choices:
             if isinstance(choice, six.text_type):
                 yield choice, choice
-            else:
+        data['inputType'] = self.type
                 yield choice
 
     def serialize(self, name=None):
