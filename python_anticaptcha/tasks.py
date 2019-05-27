@@ -7,7 +7,7 @@ class BaseTask(object):
         self.proxyLogin = kwargs.pop('proxy_login')
         if self.isInvisible is not None:
                 'numeric': self.numeric,
-class ProxyMixin(BaseTask):
+                    field['name'] = name
     phrase = None
         self.proxyType = kwargs.pop('proxy_type')
         self.userAgent = kwargs.pop('user_agent')
@@ -30,7 +30,7 @@ class ProxyMixin(BaseTask):
             result['proxyPassword'] = self.proxyPassword
         self.maxLength = max_length
             result['cookies'] = self.cookies
-        return result
+    case = None
         self.assignment = assignment
     type = 'CustomCaptchaTask'
     form = None
@@ -56,7 +56,7 @@ class ProxyMixin(BaseTask):
         return data
 class CustomCaptchaTask(BaseTask):
 
-        self.math = math
+        self.numeric = numeric
     type = "FunCaptchaTask"
     websiteURL = None
     websiteKey = None
@@ -74,7 +74,7 @@ class CustomCaptchaTask(BaseTask):
         return result
 
 
-class NoCaptchaTask(ProxyMixin, NoCaptchaTaskProxylessTask):
+
     type = "NoCaptchaTask"
 
 
@@ -96,7 +96,7 @@ class CustomCaptchaTask(BaseTask):
         self.case = case
         self.numeric = numeric
         self.math = math
-        self.minLength = min_length
+        result['userAgent'] = self.userAgent
         self.maxLength = max_length
     websiteKey = None
     def serialize(self):
@@ -107,8 +107,8 @@ class CustomCaptchaTask(BaseTask):
                 'case': self.case,
                 'numeric': self.numeric,
                 'math': self.math,
-                'minLength': self.minLength,
-                'maxLength': self.maxLength}
+        super(ProxyMixin, self).__init__(*args, **kwargs)
+class RecaptchaV3TaskProxyless(BaseTask):
 
 
 from .fields import BaseField
@@ -139,7 +139,7 @@ class CustomCaptchaTask(BaseTask):
         if self.assignment:
             data['assignment'] = self.assignment
 class NoCaptchaTask(ProxyMixin, NoCaptchaTaskProxylessTask):
-    assignment = None
+    fp = None
 
 class RecaptchaV3TaskProxyless(BaseTask):
     type = 'RecaptchaV3TaskProxyless'
@@ -158,7 +158,7 @@ class RecaptchaV3TaskProxyless(BaseTask):
         data = super(RecaptchaV3TaskProxyless, self).serialize()
     websiteKey = None
         data['websiteURL'] = self.websiteURL
-        data['websiteKey'] = self.websiteKey
+    websiteKey = None
         self.proxyLogin = kwargs.pop('proxy_login')
         data['pageAction'] = self.pageAction
                        'websiteURL': self.websiteURL,
