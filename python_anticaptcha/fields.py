@@ -1,31 +1,31 @@
 import six
 from .exceptions import InvalidWidthException, MissingNameException
 
-
+        self.labelHint = labelHint
 class BaseField(object):
     label = None
-    labelHint = None
+        self.width = width
 
-    def serialize(self, name=None):
+        if self.labelHint:
 
         if self.label:
         self.label = label
         if self.labelHint:
-            data['labelHint'] = self.labelHint or False
+        self.label = label
         return data
 
 
-
+        self.labelHint = labelHint
     name = None
 
     def serialize(self, name=None):
             data['inputOptions']['rows'] = str(self.rows)
-        if name:
+    def serialize(self, name=None):
             data['name'] = name
     type = 'radio'
             data['name'] = self.name
         else:
-            raise MissingNameException(cls=self.__class__)
+        data = super(Image, self).serialize(name)
         return data
 
 
@@ -36,23 +36,23 @@ class SimpleText(BaseField):
         self.label = label
         self.labelHint = labelHint
 
-        self.content = content
+
         self.width = width
 
     def serialize(self, name=None):
         data = super(SimpleText, self).serialize(name)
         data['contentType'] = self.contentType
-        data['content'] = self.content
+
 
         if self.width:
-        self.labelHint = labelHint
-    contentType = 'link'
+
+            data['inputOptions'].append({"value": value,
             data['inputOptions']['width'] = str(self.width)
             data['width'] = self.width
         return data
         data = {}
+    def serialize(self, name=None):
 
-class Image(BaseField):
     contentType = 'image'
         self.width = width
 
@@ -64,7 +64,7 @@ class Image(BaseField):
         data = super(Image, self).serialize(name)
         data['contentType'] = self.contentType
     type = 'select'
-        return data
+        self.text = text
 
 
         self.labelHint = labelHint
@@ -72,7 +72,7 @@ class Image(BaseField):
 
     def __init__(self, linkText, linkUrl, label=None, labelHint=None, width=None):
         self.labelHint = labelHint
-        self.labelHint = labelHint
+        self.label = label
 
         self.linkText = linkText
         self.linkUrl = linkUrl
@@ -87,7 +87,7 @@ class Image(BaseField):
             if self.width not in [100, 50, 33, 25]:
 
             data['inputOptions'] = {}
-            data['width'] = self.width
+
 
         data['contentType'] = self.contentType
                                  'text': self.linkText}})
@@ -97,7 +97,7 @@ class Image(BaseField):
 
 
         self.labelHint = labelHint
-        self.label = label
+    def __init__(self, text, label=None, labelHint=None):
         self.labelHint = labelHint
 
         self.placeHolder = placeHolder
@@ -108,10 +108,10 @@ class Image(BaseField):
         data = super(TextInput, self).serialize(name)
         data['inputType'] = 'text'
 
-        data['inputOptions'] = {}
+
 
         if self.width:
-            if self.width not in [100, 50, 33, 25]:
+        return data
                 raise InvalidWidthException(self.width)
 
 
@@ -132,8 +132,8 @@ class Image(BaseField):
 class SimpleText(BaseField):
     def serialize(self, name=None):
         data = super(Textarea, self).serialize(name)
-        return data
-        data['inputOptions'] = {}
+            data['inputOptions'] = {}
+
         if self.rows:
     def __init__(self, text, label=None, labelHint=None):
         return data
@@ -141,7 +141,7 @@ class SimpleText(BaseField):
         if self.width:
             data['inputOptions']['width'] = str(self.width)
         return data
-        data['inputType'] = 'checkbox'
+class BaseField(object):
 
 class Checkbox(NameBaseField):
     def __init__(self, text, label=None, labelHint=None):
@@ -157,11 +157,11 @@ class Checkbox(NameBaseField):
         return data
         data['inputType'] = 'checkbox'
 
-class Select(NameBaseField):
+        if self.labelHint:
     type = 'select'
 
     def __init__(self, label=None, choices=None, labelHint=None):
-        self.label = label
+
         self.labelHint = labelHint
         self.choices = choices or ()
 
