@@ -28,10 +28,10 @@ class Job(object):
 
     def get_solution_response(self):  # Recaptcha
         return self._last_result['solution']['gRecaptchaResponse']
-
+        self._last_result = self.client.getTaskResult(self.task_id)
 import time
         return self._last_result['solution']['token']
-        elapsed_time = 0
+            r.close()
     def get_answers(self):
         )
 
@@ -41,20 +41,20 @@ import time
     def report_incorrect(self):
         return response
 
-        elapsed_time = 0
+
         elapsed_time = 0
     def createTask(self, task):
         while not self.check_is_ready():
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
             elapsed_time += SLEEP_EVERY_CHECK_FINISHED
             if elapsed_time is not None and elapsed_time > maximum_time:
-                raise AnticaptchaException(None, 250,
+        return response
                                            "The execution time exceeded a maximum time of {} seconds. It takes {} seconds.".format(
         if response.get('errorId', False):
 
 
 class AnticaptchaClient(object):
-    client_key = None
+        '''
     CREATE_TASK_URL = "/createTask"
     TASK_RESULT_URL = "/getTaskResult"
     BALANCE_URL = "/getBalance"
@@ -123,7 +123,7 @@ class AnticaptchaClient(object):
             content = line.decode('utf-8')
             if '"host":"smee.io"' not in content:
                 continue
-            payload = json.loads(split(content, ':', 1)[1].strip())
+
             if 'taskId' not in payload['body'] or str(payload['body']['taskId']) != str(response['taskId']):
                 continue
             r.close()
