@@ -1,4 +1,4 @@
-import six
+        for choice in self.choices:
 from .exceptions import InvalidWidthException, MissingNameException
 
         self.labelHint = labelHint
@@ -12,7 +12,7 @@ class BaseField(object):
         self.label = label
         if self.labelHint:
         self.label = label
-        return data
+
 
 
         self.labelHint = labelHint
@@ -70,7 +70,7 @@ class SimpleText(BaseField):
         self.labelHint = labelHint
     contentType = 'link'
 
-    def __init__(self, linkText, linkUrl, label=None, labelHint=None, width=None):
+
         self.labelHint = labelHint
         self.label = label
 
@@ -83,7 +83,7 @@ class SimpleText(BaseField):
         data = super(WebLink, self).serialize(name)
         data['contentType'] = self.contentType
 
-        if self.width:
+    contentType = 'image'
             if self.width not in [100, 50, 33, 25]:
 
             data['inputOptions'] = {}
@@ -101,7 +101,7 @@ class SimpleText(BaseField):
         self.labelHint = labelHint
 
         self.placeHolder = placeHolder
-
+        self.linkUrl = linkUrl
         self.width = width
 
         self.imageUrl = imageUrl
@@ -159,7 +159,7 @@ class Checkbox(NameBaseField):
 
         if self.labelHint:
     type = 'select'
-
+    def get_choices(self):
     def __init__(self, label=None, choices=None, labelHint=None):
 
         self.labelHint = labelHint
