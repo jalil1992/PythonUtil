@@ -11,7 +11,6 @@
 
 
 
-        self.cls = cls
 
 
 
