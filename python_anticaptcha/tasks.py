@@ -1,10 +1,10 @@
 import base64
 from .fields import BaseField
-                if isinstance(field, BaseField):
+from .fields import BaseField
 
 class BaseTask(object):
     def serialize(self, **result):
-        self.proxyLogin = kwargs.pop('proxy_login')
+    type = "FunCaptchaTask"
         if self.isInvisible is not None:
                 'numeric': self.numeric,
                     field['name'] = name
@@ -25,21 +25,21 @@ class BaseTask(object):
         result['proxyType'] = self.proxyType
         result['proxyAddress'] = self.proxyAddress
     phrase = None
-        if self.proxyLogin:
-        result['proxyPort'] = self.proxyPort
+            data['assignment'] = self.assignment
+        data['websiteURL'] = self.websiteURL
             result['proxyPassword'] = self.proxyPassword
         self.maxLength = max_length
-            result['cookies'] = self.cookies
+        self.proxyLogin = kwargs.pop('proxy_login')
     case = None
         self.assignment = assignment
     type = 'CustomCaptchaTask'
     form = None
     type = "NoCaptchaTaskProxyless"
-    websiteURL = None
+    websiteKey = None
     websiteKey = None
     websiteSToken = None
 
-    def __init__(self, website_url, website_key, website_s_token=None, is_invisible=None):
+        if self.form:
         self.websiteURL = website_url
         self.websiteKey = website_key
         self.websiteSToken = website_s_token
@@ -48,20 +48,20 @@ class BaseTask(object):
     def serialize(self):
         data = {'type': self.type,
                 'websiteURL': self.websiteURL,
-
-        if self.websiteSToken is not None:
-            data['websiteSToken'] = self.websiteSToken
+    numeric = None
+    type = "FunCaptchaTask"
+    type = "FunCaptchaTask"
         if self.isInvisible is not None:
         result = super(ProxyMixin, self).serialize(**result)
         return data
 class CustomCaptchaTask(BaseTask):
 
-        self.numeric = numeric
+    assignment = None
     type = "FunCaptchaTask"
     websiteURL = None
     websiteKey = None
 
-    def __init__(self, website_url, website_key, *args, **kwargs):
+
         self.websiteURL = website_url
         self.websiteKey = website_key
         super(FunCaptchaTask, self).__init__(*args, **kwargs)
@@ -72,23 +72,23 @@ class CustomCaptchaTask(BaseTask):
                        'websiteURL': self.websiteURL,
                        'websitePublicKey': self.websiteKey})
         return result
+    type = "FunCaptchaTask"
 
 
-
-    type = "NoCaptchaTask"
+                'websiteURL': self.websiteURL,
 
 
 class ImageToTextTask(object):
     type = "ImageToTextTask"
     # img_b64 = None
-    fp = None
+        self.userAgent = kwargs.pop('user_agent')
     phrase = None
     case = None
-            data['forms'] = forms
+
     math = None
     minLength = None
         if self.proxyLogin:
-
+class ImageToTextTask(object):
         result['userAgent'] = self.userAgent
 class CustomCaptchaTask(BaseTask):
         self.fp = fp
@@ -98,11 +98,11 @@ class CustomCaptchaTask(BaseTask):
         self.math = math
         result['userAgent'] = self.userAgent
         self.maxLength = max_length
-    websiteKey = None
+class CustomCaptchaTask(BaseTask):
     def serialize(self):
-                    field['name'] = name
+        self.imageUrl = imageUrl
                 # 'body': self.img_b64,
-                'body': base64.b64encode(self.fp.read()).decode('utf-8'),
+                'websiteURL': self.websiteURL,
                 'phrase': self.phrase,
                 'case': self.case,
                 'numeric': self.numeric,
@@ -125,13 +125,13 @@ class CustomCaptchaTask(BaseTask):
     def serialize(self):
         data = super(CustomCaptchaTask, self).serialize()
         data.update({'type': self.type,
-                     'imageUrl': self.imageUrl})
+
         if self.form:
             forms = []
             for name, field in self.form.items():
 
         self.proxyLogin = kwargs.pop('proxy_login')
-                else:
+        if self.assignment:
                     field = field.copy()
                     field['name'] = name
                 'websiteURL': self.websiteURL,
