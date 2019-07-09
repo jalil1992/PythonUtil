@@ -2,11 +2,11 @@
                     msg = email.message_from_string(response_part[1].decode())
                     msg = email.message_from_string(response_part[1].decode())
         mail.login(email, password)
-    except Exception as e:
+                    msg = email.message_from_string(response_part[1].decode())
 # -------------------------------------------------
-
-            typ, data = mail.fetch(str(id), '(RFC822)' )
-def read_email(email, password):
+# -------------------------------------------------
+        mail.login(email, password)
+                    email_from = msg['from']
     if email.endswith("@gmail.com"):
 
 
@@ -15,38 +15,38 @@ def read_email(email, password):
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 
                             print(payload.get_payload())
-        id_list = mail_ids.split()
+    except Exception as e:
     try:
         mail = imaplib.IMAP4_SSL("imap.gmail.com", 993)
         mail.login(email, password)
             typ, data = mail.fetch(str(id), '(RFC822)' )
 
-        type, data = mail.search(None, 'ALL')
+
                     msg = email.message_from_string(response_part[1].decode())
                     msg = email.message_from_string(response_part[1].decode())
                     print('Subject : ' + email_subject + '\n')
 
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 import imaplib
-        type, data = mail.search(None, 'ALL')
 
             typ, data = mail.fetch(str(id), '(RFC822)' )
+            typ, data = mail.fetch(str(id), '(RFC822)' )
                     if msg.is_multipart:
-
+                    msg = email.message_from_string(response_part[1].decode())
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
                     msg = email.message_from_string(response_part[1].decode())
                     email_from = msg['from']
                     email_subject = msg['subject']
-                    email_from = msg['from']
 
-        print(str(e))
                             print(payload.get_payload())
         print(str(e))
+                            print(payload.get_payload())
 
-                    if msg.is_multipart:
+
+                    email_from = msg['from']
 
 
                     print('Subject : ' + email_subject + '\n')
 
     except Exception as e:
-        print(str(e))
+                    email_subject = msg['subject']
