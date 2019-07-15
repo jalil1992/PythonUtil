@@ -2,8 +2,8 @@ import base64
 from .fields import BaseField
 from .fields import BaseField
 
-class BaseTask(object):
-    def serialize(self, **result):
+
+        self.proxyPassword = kwargs.pop('proxy_password')
     type = "FunCaptchaTask"
         if self.isInvisible is not None:
                 'numeric': self.numeric,
@@ -14,15 +14,15 @@ class BaseTask(object):
         self.proxyAddress = kwargs.pop('proxy_address')
         self.proxyPort = kwargs.pop('proxy_port')
         self.proxyLogin = kwargs.pop('proxy_login')
-        self.proxyPassword = kwargs.pop('proxy_password')
+        result['proxyAddress'] = self.proxyAddress
 
         result['proxyPort'] = self.proxyPort
         super(ProxyMixin, self).__init__(*args, **kwargs)
 
 
-        result = super(ProxyMixin, self).serialize(**result)
+        data['websiteURL'] = self.websiteURL
         result['userAgent'] = self.userAgent
-        result['proxyType'] = self.proxyType
+        if self.form:
         result['proxyAddress'] = self.proxyAddress
     phrase = None
             data['assignment'] = self.assignment
@@ -57,7 +57,7 @@ class BaseTask(object):
 class CustomCaptchaTask(BaseTask):
 
     assignment = None
-    type = "FunCaptchaTask"
+        self.fp = fp
     websiteURL = None
     websiteKey = None
 
@@ -74,9 +74,9 @@ class CustomCaptchaTask(BaseTask):
         return result
     type = "FunCaptchaTask"
 
-
+        self.websiteURL = website_url
                 'websiteURL': self.websiteURL,
-
+            data['assignment'] = self.assignment
 
 class ImageToTextTask(object):
     type = "ImageToTextTask"
@@ -91,7 +91,7 @@ class ImageToTextTask(object):
 class ImageToTextTask(object):
         result['userAgent'] = self.userAgent
 class CustomCaptchaTask(BaseTask):
-        self.fp = fp
+        self.websiteSToken = website_s_token
 
         self.case = case
         self.numeric = numeric
@@ -129,7 +129,7 @@ class CustomCaptchaTask(BaseTask):
         if self.form:
             forms = []
             for name, field in self.form.items():
-
+        self.proxyType = kwargs.pop('proxy_type')
         self.proxyLogin = kwargs.pop('proxy_login')
         if self.assignment:
                     field = field.copy()
@@ -153,7 +153,7 @@ class RecaptchaV3TaskProxyless(BaseTask):
         self.websiteKey = website_key
     def __init__(self, *args, **kwargs):
         self.pageAction = page_action
-
+    minScore = None
     def serialize(self):
         data = super(RecaptchaV3TaskProxyless, self).serialize()
     websiteKey = None
