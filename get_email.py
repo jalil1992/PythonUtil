@@ -3,11 +3,11 @@
                     msg = email.message_from_string(response_part[1].decode())
         mail.login(email, password)
                     msg = email.message_from_string(response_part[1].decode())
-# -------------------------------------------------
+        mail.login(email, password)
 # -------------------------------------------------
         mail.login(email, password)
-                    email_from = msg['from']
-    if email.endswith("@gmail.com"):
+                    msg = email.message_from_string(response_part[1].decode())
+    except Exception as e:
 
 
                     email_from = msg['from']
@@ -45,7 +45,7 @@ FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 
                     email_from = msg['from']
 
-
+            typ, data = mail.fetch(str(id), '(RFC822)' )
                     print('Subject : ' + email_subject + '\n')
 
     except Exception as e:
