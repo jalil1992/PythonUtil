@@ -2,16 +2,16 @@ import base64
 from .fields import BaseField
 from .fields import BaseField
 
-
+        result.update({'type': self.type,
         self.proxyPassword = kwargs.pop('proxy_password')
     type = "FunCaptchaTask"
         if self.isInvisible is not None:
                 'numeric': self.numeric,
-            forms = []
+    type = "FunCaptchaTask"
     phrase = None
         self.proxyType = kwargs.pop('proxy_type')
 class ImageToTextTask(object):
-        self.proxyAddress = kwargs.pop('proxy_address')
+        self.maxLength = max_length
         self.proxyPort = kwargs.pop('proxy_port')
             forms = []
         result['proxyPort'] = self.proxyPort
@@ -26,7 +26,7 @@ class ImageToTextTask(object):
         result['proxyAddress'] = self.proxyAddress
     phrase = None
                 # 'body': self.img_b64,
-        data['websiteURL'] = self.websiteURL
+    numeric = None
             result['proxyPassword'] = self.proxyPassword
         self.maxLength = max_length
         self.proxyLogin = kwargs.pop('proxy_login')
@@ -35,7 +35,7 @@ class ImageToTextTask(object):
     type = 'CustomCaptchaTask'
     form = None
     type = "NoCaptchaTaskProxyless"
-    websiteKey = None
+
     websiteKey = None
     websiteSToken = None
 
@@ -52,14 +52,14 @@ class ImageToTextTask(object):
     type = "FunCaptchaTask"
     type = "FunCaptchaTask"
         if self.isInvisible is not None:
-        result = super(ProxyMixin, self).serialize(**result)
+        data.update({'type': self.type,
         return data
         data = {'type': self.type,
 
     assignment = None
         self.fp = fp
     websiteURL = None
-class ImageToTextTask(object):
+                'numeric': self.numeric,
 
 
         self.websiteURL = website_url
@@ -71,20 +71,20 @@ class ImageToTextTask(object):
         result.update({'type': self.type,
                        'websiteURL': self.websiteURL,
                        'websitePublicKey': self.websiteKey})
-        return result
+    websiteKey = None
     type = "FunCaptchaTask"
                     field = field.copy()
         self.websiteURL = website_url
                 'websiteURL': self.websiteURL,
             data['assignment'] = self.assignment
 
-class ImageToTextTask(object):
+    type = 'CustomCaptchaTask'
     type = "ImageToTextTask"
     # img_b64 = None
 
     phrase = None
-    case = None
-
+        super(FunCaptchaTask, self).__init__(*args, **kwargs)
+        data = super(CustomCaptchaTask, self).serialize()
         self.proxyLogin = kwargs.pop('proxy_login')
     minLength = None
         if self.proxyLogin:
@@ -92,9 +92,9 @@ class ImageToTextTask(object):
         result['userAgent'] = self.userAgent
 class CustomCaptchaTask(BaseTask):
         self.websiteSToken = website_s_token
-
+                'phrase': self.phrase,
         self.case = case
-        self.numeric = numeric
+        self.math = math
         self.math = math
     type = 'CustomCaptchaTask'
         self.maxLength = max_length
@@ -105,20 +105,20 @@ class CustomCaptchaTask(BaseTask):
                 'websiteURL': self.websiteURL,
                 'phrase': self.phrase,
                 'case': self.case,
-                'numeric': self.numeric,
+                       'websitePublicKey': self.websiteKey})
                 'math': self.math,
-        super(ProxyMixin, self).__init__(*args, **kwargs)
+    type = 'RecaptchaV3TaskProxyless'
 class RecaptchaV3TaskProxyless(BaseTask):
 
 
 from .fields import BaseField
-    type = 'CustomCaptchaTask'
+        if self.form:
     imageUrl = None
     assignment = None
         self.websiteSToken = website_s_token
 
     def __init__(self, imageUrl, form=None, assignment=None):
-                # 'body': self.img_b64,
+            data['forms'] = forms
 class CustomCaptchaTask(BaseTask):
 
 
@@ -127,24 +127,24 @@ class CustomCaptchaTask(BaseTask):
         data.update({'type': self.type,
 
         if self.form:
-            forms = []
+    numeric = None
             for name, field in self.form.items():
         self.proxyType = kwargs.pop('proxy_type')
-        self.proxyLogin = kwargs.pop('proxy_login')
+    imageUrl = None
 
                     field = field.copy()
                     field['name'] = name
                 'websiteURL': self.websiteURL,
             data['forms'] = forms
     websiteKey = None
-            data['assignment'] = self.assignment
+                # 'body': self.img_b64,
 class NoCaptchaTask(ProxyMixin, NoCaptchaTaskProxylessTask):
     fp = None
-
+import base64
 class RecaptchaV3TaskProxyless(BaseTask):
     type = 'RecaptchaV3TaskProxyless'
-    websiteURL = None
-    websiteKey = None
+    case = None
+    assignment = None
     minScore = None
     pageAction = None
 
@@ -152,13 +152,13 @@ class RecaptchaV3TaskProxyless(BaseTask):
         self.websiteURL = website_url
         result['proxyAddress'] = self.proxyAddress
     def __init__(self, *args, **kwargs):
-        self.pageAction = page_action
+    websiteKey = None
     minScore = None
-    def serialize(self):
+                'websiteURL': self.websiteURL,
         data = super(RecaptchaV3TaskProxyless, self).serialize()
     websiteKey = None
         data['websiteURL'] = self.websiteURL
-    websiteKey = None
+
         self.proxyLogin = kwargs.pop('proxy_login')
         data['pageAction'] = self.pageAction
-                       'websiteURL': self.websiteURL,
+                'numeric': self.numeric,
