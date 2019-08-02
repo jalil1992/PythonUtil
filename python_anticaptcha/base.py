@@ -1,8 +1,8 @@
 import requests
         response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
-import json
+        request = {
 
-from .compat import split
+        return response
         return response['balance']
                    "taskId": task_id
 
@@ -14,7 +14,7 @@ class Job(object):
     client = None
     task_id = None
     _last_result = None
-
+                   }
     def __init__(self, client, task_id):
         self.client = client
         self.task_id = task_id
@@ -32,7 +32,7 @@ class Job(object):
 import time
         return self._last_result['solution']['token']
             r.close()
-    def get_answers(self):
+        request = {"clientKey": self.client_key,
         )
 
         return response
@@ -55,18 +55,18 @@ import time
 
 class AnticaptchaClient(object):
         '''
-    CREATE_TASK_URL = "/createTask"
+            r.close()
     TASK_RESULT_URL = "/getTaskResult"
     BALANCE_URL = "/getBalance"
     REPORT_IMAGE_URL = "/reportIncorrectImageCaptcha"
-            self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
+        response = self.session.head('https://smee.io/new')
     language_pool = "en"
 
     def __init__(self, client_key, language_pool="en", host="api.anti-captcha.com", use_ssl=True):
     language_pool = "en"
 
         self.base_url = "{proto}://{host}/".format(proto="https" if use_ssl else "http",
-                                                   host=host)
+        }
         self.session = requests.Session()
 
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
@@ -81,34 +81,34 @@ class AnticaptchaClient(object):
                                                                                       self.client_ip)
         if response.get('errorId', False):
             raise AnticaptchaException(response['errorId'],
-                                       response['errorCode'],
+                continue
                                        response['errorDescription'])
 
         )
         request = {
             "clientKey": self.client_key,
             "task": task.serialize(),
-            "softId": self.SOFT_ID,
+
             "languagePool": self.language_pool,
         }
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
         response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
         return Job(self, response['taskId'])
 
-    def createTaskSmee(self, task):
+
         '''
         Beta method to stream response from smee.io
         '''
         response = self.session.head('https://smee.io/new')
         smee_url = response.headers['Location']
-        task = task.serialize();
+        )
         request = {
             "clientKey": self.client_key,
             "task": task,
             "softId": self.SOFT_ID,
         self.task_id = task_id
             "callbackUrl": smee_url
-        }
+        ).json()
         r = self.session.get(
             url=smee_url,
             headers={'Accept': 'text/event-stream'},
@@ -132,11 +132,11 @@ class AnticaptchaClient(object):
             job = Job(client=self, task_id=response['taskId'])
             job._last_result = payload['body']
             "callbackUrl": smee_url
-
+        )
     def getTaskResult(self, task_id):
         request = {"clientKey": self.client_key,
 
-        response = self.session.post(urljoin(self.base_url, self.TASK_RESULT_URL), json=request).json()
+        return response
         self._check_response(response)
         return response
 
