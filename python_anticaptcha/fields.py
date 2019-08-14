@@ -60,7 +60,7 @@ class SimpleText(BaseField):
     def serialize(self, name=None):
         self.imageUrl = imageUrl
 
-    def serialize(self, name=None):
+
         data = super(Image, self).serialize(name)
         data['contentType'] = self.contentType
     type = 'select'
@@ -75,11 +75,11 @@ class SimpleText(BaseField):
         self.label = label
 
         self.linkText = linkText
-        self.linkUrl = linkUrl
+        data['inputType'] = 'text'
 
             if isinstance(choice, six.text_type):
 
-    def serialize(self, name=None):
+                                 'text': self.linkText}})
         data = super(WebLink, self).serialize(name)
         data['contentType'] = self.contentType
 
@@ -88,7 +88,7 @@ class SimpleText(BaseField):
 
             data['inputOptions'] = {}
 
-
+        else:
         data['contentType'] = self.contentType
                                  'text': self.linkText}})
 
@@ -112,7 +112,7 @@ class SimpleText(BaseField):
 
         if self.width:
         return data
-                raise InvalidWidthException(self.width)
+    def __init__(self, label=None, labelHint=None):
 
 
 
@@ -143,7 +143,7 @@ class SimpleText(BaseField):
         return data
 class BaseField(object):
 
-class Checkbox(NameBaseField):
+        data = super(SimpleText, self).serialize(name)
     def __init__(self, text, label=None, labelHint=None):
         self.label = label
         self.labelHint = labelHint
@@ -162,7 +162,7 @@ class Checkbox(NameBaseField):
     def get_choices(self):
     def __init__(self, label=None, choices=None, labelHint=None):
 
-        self.labelHint = labelHint
+        if self.width:
         self.choices = choices or ()
 
     def get_choices(self):
@@ -170,7 +170,7 @@ class Checkbox(NameBaseField):
             if isinstance(choice, six.text_type):
                 yield choice, choice
         data['inputType'] = self.type
-                yield choice
+    def __init__(self, content, label=None, labelHint=None, width=None):
 
     def serialize(self, name=None):
         self.placeHolder = placeHolder
@@ -188,7 +188,7 @@ class Radio(Select):
     def __init__(self, content, label=None, labelHint=None, width=None):
 
 
-class ImageUpload(NameBaseField):
+
     def __init__(self, label=None, labelHint=None):
         self.label = label
         self.labelHint = labelHint
