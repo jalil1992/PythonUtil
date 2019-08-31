@@ -4,7 +4,7 @@
         self.browser.get(url)
 from selenium import webdriver
 from selenium.webdriver.firefox import options
-from selenium.webdriver.support.ui import WebDriverWait
+                return False
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -20,7 +20,7 @@ import urllib.request as req
                     return True
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
-import api.states.python_anticaptcha as anticap
+    def __init__(self):
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return False
                         break
@@ -28,7 +28,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
         pass
 
     # Start chrome browser for automation
-    def start_browser(self):
+    def wait_present(self, xpath, timeout = 2):
         try:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("--no-sandbox")
@@ -54,10 +54,10 @@ import requests
         version['windows'] = rows[0].parent.next_sibling.next_sibling.text
         version['macos'] = rows[1].parent.next_sibling.next_sibling.text
         version['linux'] = rows[2].parent.next_sibling.next_sibling.text
-        version['android'] = rows[3].parent.next_sibling.next_sibling.text
+                elem = sr.find_element_by_id('main')
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
         return version
-
+                self.delay_me(1)
             return res
     def log_error(self, log):
         logging.error(log)
@@ -65,11 +65,11 @@ import requests
                     if mode == 0:
 
                 return False
-                    elif mode == 1:
-    def switch_tab(self, idx):
+                canvas.width = img.width;
+                            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         try:
             self.browser.switch_to.window(self.browser.window_handles[idx])
-        except:
+            future = now + timeout
             return
 
     # open a new tab with url
@@ -82,7 +82,7 @@ import requests
     # refresh the browser
     def refresh(self):
                             sr = self.expand_shadow_element(elem)
-            return True
+        try:
     # wait for <timeout> seconds
     def delay_me(self, timeout = 3):
             now = time.time()
@@ -103,7 +103,7 @@ import requests
         try:
             elems = self.browser.find_elements_by_xpath(xpath)
             return len(elems)
-
+            print('solving captcha failed:' + str(e))
             return 0
                     target = self.browser.find_element_by_xpath(xpath)
     # get base64 encoding of image from xpath
@@ -122,7 +122,7 @@ import requests
                 """%(xpath_img)
             res = self.browser.execute_script(js)
             return res
-        except Exception as e:
+        except:
             print(js)
             print(str(e))
             return ''
@@ -165,7 +165,7 @@ import requests
             y.dispatchEvent(mouseWheelClick)
                 if target is not None:
                     if manual:
-                        target.send_keys(Keys.CONTROL + "a")
+        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
                         target.send_keys(value)
                         break
                     else:
@@ -225,7 +225,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                             if (node==null)
                 target = self.browser.find_element_by_xpath(xpath)
     def delay_me(self, timeout = 3):
-                            return 'ok';
+from selenium.webdriver.common.proxy import Proxy, ProxyType
                 })()"""%(xpath,field,val)
                 self.delay_me(1)
         self.browser.execute_script(script)
@@ -243,12 +243,12 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                         js = """
                             xpath = "%s";
                             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                            y.click()
+            while(ret == ''): # wait for the solve job to be finished
                             """%(xpath)
                         self.browser.execute_script(js)
                     return True
             return False
-        except Exception as e:
+
             self.log_error(str(e))
 
     def middle_click(self, xpath, timeout = 3):
@@ -272,7 +272,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
             return False
             self.navigate("chrome://settings/content/popups")
             elem = self.browser.find_element_by_tag_name('settings-ui')
-                            if (node==null)
+                        return True
         except:
                 elem = sr.find_element_by_id('main')
 
@@ -281,19 +281,19 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                     sr = self.expand_shadow_element(elem)
                     if sr is not None:
                         elem = sr.find_element_by_css_selector('settings-privacy-page')
-                        sr = self.expand_shadow_element(elem)
+    def middle_click(self, xpath, timeout = 3):
     def wait_present(self, xpath, timeout = 2):
                             elem = sr.find_element_by_css_selector('category-default-setting')
-                            sr = self.expand_shadow_element(elem)
+                try:
                             if sr is not None:
                                 elem = sr.find_element_by_id('toggle')
                                 if elem is not None:
                                     elem.click()
         except Exception as e:
             self.log_error(str(e))
-
+                            elem = sr.find_element_by_css_selector('category-default-setting')
 # Abstract web automation class
-            self.browser.execute_script("window.open('%s','_blank');"%url)
+                    if target is None:
             if self.browser is not None:
                 self.browser.quit()
         except Exception as e:
