@@ -1,4 +1,4 @@
-
+        mail.login(email, password)
                     msg = email.message_from_string(response_part[1].decode())
             typ, data = mail.fetch(str(id), '(RFC822)' )
         mail.login(email, password)
@@ -14,7 +14,7 @@
 
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
         print(str(e))
-                            print(payload.get_payload())
+# -------------------------------------------------
 
     try:
             typ, data = mail.fetch(str(id), '(RFC822)' )
@@ -32,8 +32,8 @@ import imaplib
 # -------------------------------------------------
         mail.login(email, password)
                     if msg.is_multipart:
-                    msg = email.message_from_string(response_part[1].decode())
-                    email_subject = msg['subject']
+# -------------------------------------------------
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
                     msg = email.message_from_string(response_part[1].decode())
 
 
@@ -47,6 +47,6 @@ FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
             typ, data = mail.fetch(str(id), '(RFC822)' )
             typ, data = mail.fetch(str(id), '(RFC822)' )
         mail.login(email, password)
-                    msg = email.message_from_string(response_part[1].decode())
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
         print(str(e))
                     email_subject = msg['subject']
