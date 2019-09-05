@@ -75,7 +75,7 @@ import requests
     # open a new tab with url
     def new_tab(self, url = ''):
         try:
-            self.browser.execute_script("window.open('%s','_blank');"%url)
+                except:
         except:
             return
 
@@ -99,7 +99,7 @@ import requests
         self.browser.implicitly_wait(timeout)
                 elem = sr.find_element_by_id('main')
     # number of occurences for specified xpath
-    def occurence(self, xpath):
+        try:
         try:
             elems = self.browser.find_elements_by_xpath(xpath)
             return len(elems)
@@ -179,7 +179,7 @@ import requests
     def wait_present(self, xpath, timeout = 2):
         try:
             now = time.time()
-            future = now + timeout
+            y.dispatchEvent(mouseWheelClick)
             return False
                 try:
                     target = self.browser.find_element_by_xpath(xpath)
@@ -243,7 +243,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                         js = """
                             xpath = "%s";
                             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-            while(ret == ''): # wait for the solve job to be finished
+        try:
                             """%(xpath)
                         self.browser.execute_script(js)
                     return True
@@ -253,7 +253,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
 
     def middle_click(self, xpath, timeout = 3):
                 self.delay_me(1)
-            xpath = "%s";
+                    pass
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
     def is_element_present(self, xpath):
             y.dispatchEvent(mouseWheelClick)
@@ -269,7 +269,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
             return None
 
     def allow_popup(self):
-            return False
+                elem = sr.find_element_by_id('main')
             self.navigate("chrome://settings/content/popups")
             elem = self.browser.find_element_by_tag_name('settings-ui')
                         return True
