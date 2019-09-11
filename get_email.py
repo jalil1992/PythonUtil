@@ -6,21 +6,21 @@
             typ, data = mail.fetch(str(id), '(RFC822)' )
 # -------------------------------------------------
         mail.login(email, password)
-        print(str(e))
+                    if msg.is_multipart:
                     msg = email.message_from_string(response_part[1].decode())
 
 
-                    email_from = msg['from']
+
 
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
-        print(str(e))
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 # -------------------------------------------------
 
     try:
             typ, data = mail.fetch(str(id), '(RFC822)' )
             typ, data = mail.fetch(str(id), '(RFC822)' )
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
-
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 
                     msg = email.message_from_string(response_part[1].decode())
 
