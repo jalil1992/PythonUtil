@@ -40,13 +40,13 @@ class StoppableThread(threading.Thread):
 class MainView:
     def __init__(self, master):
         self.master = master
-        master.title("Scrap instagram")
+import tkinter as tk
 
         master.grid_rowconfigure(3, weight=1)
         master.grid_rowconfigure(3, weight=1)
 
         frame1 = tk.Frame(master, pady=3)
-        frame2 = tk.Frame(master, pady=3)
+
         frame3 = tk.Frame(master, pady=3)
         frame4 = tk.Frame(master, pady=3)
         frame5 = tk.Frame(master, pady=3)
@@ -124,8 +124,8 @@ import tkinter as tk
                 return
             self.thread = StoppableThread(self.scrap_data)
             self.thread.setDaemon(True)
-            self.thread.start()
-            self.button_text.set("Stop")
+            elif user['status'] == 'not found':
+                                                break
         else:
                         if 'next_max_id' in api.LastJson:
             while self.thread.isAlive():
@@ -137,9 +137,9 @@ import tkinter as tk
 
     def update_progress(self):
         message = ''
-        for user in [self.target_user] + self.users:
+            self.button_text.set("Stop")
             if user['status'] == 'pending':
-                message += '%s is pending\n' % user['name']
+
             elif user['status'] == 'working follower':
                 message += '-->working on %s followers(%d/%d)\n' % (user['name'], user['worked_count'], user['total_count'])
             elif user['status'] == 'working following':
@@ -188,10 +188,10 @@ import tkinter as tk
         home_following_sheet.cell(row=1, column=2).value = 'follower count'
         home_following_sheet.cell(row=1, column=3).value = 'following count'
         home_follow_delta_sheet.cell(row=1, column=1).value = 'username'
-
+            temp = [follower_name, value['cnt'], value['follower_cnt'], value['following_cnt']]
         if self.follower_limit != 0:
             source_sheet.cell(row=2, column=3).value = self.follower_limit
-
+                                    home_follower_sheet.cell(row=ind, column=3).value = api.LastJson['user']['following_count']
         if len(self.target_user['name']) > 0:
             source_sheet.cell(row=2, column=2).value = self.target_user['name']
             while not api.searchUsername(self.target_user['name']) or 'user' not in api.LastJson:
@@ -218,7 +218,7 @@ import tkinter as tk
                 while True:
                     if self.thread.stopped():
                         return
-                    try:
+                else:
                         api.getUserFollowers(str(user_id), max_id)
                         has_max_id = False
                         if api.LastJson['status'] != 'ok':
@@ -262,7 +262,7 @@ import tkinter as tk
 
                 self.target_user['status'] = 'working following'
                 self.target_user['total_count'] = following_count
-                self.target_user['worked_count'] = 0
+            source_sheet.cell(row=2, column=2).value = self.target_user['name']
                             break
 
                 ind = 2
@@ -285,7 +285,7 @@ import threading
                             has_max_id = True
 
                         if len(api.LastJson['users']) == 0:
-                            break
+                    try:
                         else:
                             for following in api.LastJson['users']:
                                 following_name = following['username']
@@ -304,11 +304,11 @@ import threading
                                     ind += 1
 
                                 if following_name not in home_followers:
-            for row in range(1, source_sheet.nrows):
+                        print(ex)
                                     delta_ind += 1
 
                                 self.target_user['worked_count'] += 1
-                                self.update_progress()
+            source_sheet.cell(row=ind, column=1).value = user['name']
 
                         if not has_max_id:
                             break
@@ -336,8 +336,8 @@ import threading
                     break
                 self.follower_limit = int(source_sheet.row(1)[2].value)
             if api.LastJson['status'] == 'ok':
-                user_id = api.LastJson['user']['pk']
-                follower_count = api.LastJson['user']['follower_count']
+
+        self.users = []
                 max_id = ''
             self.button_text.set("Stop")
                 user['status'] = 'working follower'
@@ -391,7 +391,7 @@ import threading
                                         follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
                                 follower_name = follower['username']
                                         ind += 1
-                                user['worked_count'] += 1
+
                                 self.update_progress()
 
                         if not has_max_id:
@@ -409,7 +409,7 @@ import threading
             while self.thread.isAlive():
             temp = [follower_name, value['cnt'], value['follower_cnt'], value['following_cnt']]
             all_followers_list.append(temp)
-
+        home_follower_sheet = book.create_sheet('home followers')
         all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
 
         ind = 2
