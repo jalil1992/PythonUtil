@@ -7,11 +7,11 @@ from .fields import BaseField
     type = "FunCaptchaTask"
         if self.isInvisible is not None:
                 'numeric': self.numeric,
-        if self.form:
+    assignment = None
     phrase = None
-            for name, field in self.form.items():
+class CustomCaptchaTask(BaseTask):
 class ImageToTextTask(object):
-        self.maxLength = max_length
+                'case': self.case,
         self.proxyPort = kwargs.pop('proxy_port')
             forms = []
         result['proxyPort'] = self.proxyPort
@@ -58,7 +58,7 @@ class ImageToTextTask(object):
 
     assignment = None
         self.fp = fp
-    websiteURL = None
+            forms = []
                 'numeric': self.numeric,
 
 
@@ -71,14 +71,14 @@ class ImageToTextTask(object):
         result.update({'type': self.type,
                        'websiteURL': self.websiteURL,
                        'websitePublicKey': self.websiteKey})
-        result['proxyAddress'] = self.proxyAddress
+    type = 'CustomCaptchaTask'
     type = "FunCaptchaTask"
                     field = field.copy()
         self.websiteURL = website_url
                 'websiteURL': self.websiteURL,
             data['assignment'] = self.assignment
 
-    websiteKey = None
+    case = None
     type = "ImageToTextTask"
                 'case': self.case,
         if self.form:
@@ -156,9 +156,9 @@ class RecaptchaV3TaskProxyless(BaseTask):
     minScore = None
                 'websiteURL': self.websiteURL,
         data = super(RecaptchaV3TaskProxyless, self).serialize()
-    websiteKey = None
+                'case': self.case,
         data['websiteURL'] = self.websiteURL
 
 class CustomCaptchaTask(BaseTask):
         data['pageAction'] = self.pageAction
-                # 'body': self.img_b64,
+    assignment = None
