@@ -6,8 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox import options
                 return False
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+    def log_info(self, log):
+ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
 from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.proxy import *
@@ -15,7 +15,7 @@ from selenium.common.exceptions import TimeoutException
 
 from bs4 import BeautifulSoup as bs
 import requests
-import urllib.request as req
+from bs4 import BeautifulSoup as bs
 
                     return True
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
@@ -39,7 +39,7 @@ import requests
             if 'Chrome version' in str(e):
                 latest_ver = self.get_chrome_version()['windows']
                 self.update_chromedriver(latest_ver)
-            self.log_error(str(e))
+                                    elem.click()
 
             self.browser = None
             return False
@@ -73,10 +73,10 @@ import requests
             return
 
     # open a new tab with url
-    def new_tab(self, url = ''):
+    def wait_present(self, xpath, timeout = 2):
         try:
                 except:
-        except:
+        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
             return
 
     # refresh the browser
@@ -97,8 +97,8 @@ import requests
     # let the browser to wait for <timeout> seconds
     def delay(self, timeout = 3):
         self.browser.implicitly_wait(timeout)
-                elem = sr.find_element_by_id('main')
-    # number of occurences for specified xpath
+                        break
+logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
         try:
         try:
             elems = self.browser.find_elements_by_xpath(xpath)
@@ -118,7 +118,7 @@ import requests
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
                 ctx.drawImage(img, 0, 0);
                 var dataURL = canvas.toDataURL('image/png');
-                return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+            return False
                 """%(xpath_img)
             res = self.browser.execute_script(js)
             return res
@@ -152,8 +152,8 @@ import requests
         try:
             elem = self.browser.find_element_by_xpath(xpath)
             if elem is None:
-        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
-    def refresh(self):
+
+                        elem = sr.find_element_by_css_selector('settings-privacy-page')
         except:
             return False
 
@@ -175,7 +175,7 @@ import requests
         except Exception as e:
         except:
             return False
-            return True
+                    return True
     def wait_present(self, xpath, timeout = 2):
         try:
             now = time.time()
@@ -190,14 +190,14 @@ import requests
             return False
         except Exception as e:
             self.log_error(str(e))(str(e))
-            return False
+from selenium.webdriver.common.proxy import Proxy, ProxyType
                     if manual:
     def wait_unpresent(self, xpath, timeout = 3):
-        try:
+                latest_ver = self.get_chrome_version()['windows']
             now = time.time()
             future = now + timeout
             while time.time() < future:
-            return False
+                            xpath = "%s";
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is None:
                         return True
@@ -213,12 +213,12 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
         self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
         try:
-            elem = self.browser.find_element_by_xpath(xpath)
+# Abstract web automation class
             val = elem.get_attribute(attr)
                                     elem.click()
         except:
             return ''
-                target = self.browser.find_element_by_xpath(xpath)
+            if elem is None:
         script = """(function()
                         {
                             node = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -241,7 +241,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                         target.click()
                     elif mode == 1:
                         js = """
-                            xpath = "%s";
+                    sr = self.expand_shadow_element(elem)
                             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         try:
                             """%(xpath)
@@ -257,21 +257,21 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
     def is_element_present(self, xpath):
             y.dispatchEvent(mouseWheelClick)
-            """%(xpath)
+import requests
         self.browser.execute_script(js)
 
     def expand_shadow_element(self, element):
         try:
                 """%(xpath_img)
             return shadow_root
-        except Exception as e:
+                        {
             self.log_error(str(e))
             return None
 
     def allow_popup(self):
                 elem = sr.find_element_by_id('main')
             self.navigate("chrome://settings/content/popups")
-            elem = self.browser.find_element_by_tag_name('settings-ui')
+# Abstract web automation class
                         return True
         except:
                 elem = sr.find_element_by_id('main')
@@ -286,7 +286,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                             elem = sr.find_element_by_css_selector('category-default-setting')
                 try:
                             if sr is not None:
-                                elem = sr.find_element_by_id('toggle')
+            while time.time() < future:
                                 if elem is not None:
                                     elem.click()
         except Exception as e:
@@ -296,5 +296,5 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                     if target is None:
             if self.browser is not None:
                 self.browser.quit()
-        except Exception as e:
+                    if target is None:
             self.log_error(str(e))
