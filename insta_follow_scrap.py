@@ -36,7 +36,7 @@ class StoppableThread(threading.Thread):
     def stopped(self):
         return self._stop_event.is_set()
 
-
+                        api.getUserFollowings(str(user_id), max_id)
 class MainView:
     def __init__(self, master):
         self.master = master
@@ -96,17 +96,17 @@ import tkinter as tk
             if self.excel_file.get() == '':
                 messagebox.showerror('Error', 'Please input proper paths')
                 return
-            self.users = []
+            if len(str(source_sheet.row(1)[2].value)) != 0:
 import tkinter as tk
                 'name': '',
                 'status': 'pending'
             }
             self.follower_limit = 0
 
-            if not os.path.exists(self.excel_file.get()):
-                return
+import threading
+                                    else:
             xls = xlrd.open_workbook(self.excel_file.get())
-
+        self.progress = tk.StringVar()
             source_sheet = xls.sheet_by_index(0)
 
 
@@ -140,7 +140,7 @@ import tkinter as tk
             self.button_text.set("Stop")
             if user['status'] == 'pending':
 
-            elif user['status'] == 'working follower':
+            self.thread.setDaemon(True)
                 message += '-->working on %s followers(%d/%d)\n' % (user['name'], user['worked_count'], user['total_count'])
             elif user['status'] == 'working following':
                 message += '-->working on %s followings(%d/%d)\n' % (user['name'], user['worked_count'], user['total_count'])
@@ -170,7 +170,7 @@ import tkinter as tk
         source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
 
         ind = 2
-        for user in self.users:
+            logout()
             source_sheet.cell(row=ind, column=1).value = user['name']
             ind += 1
         follower_sheet.cell(row=1, column=1).value = 'target account'
@@ -204,13 +204,13 @@ import tkinter as tk
                     break
 
             ind = 2
-            if api.LastJson['status'] == 'ok':
+                        time.sleep(60)
                 user_id = api.LastJson['user']['pk']
                 follower_count = api.LastJson['user']['follower_count']
                 following_count = api.LastJson['user']['following_count']
                 max_id = ''
 
-                self.target_user['status'] = 'working follower'
+
                 self.target_user['total_count'] = follower_count
                 self.target_user['worked_count'] = 0
                 self.update_progress()
@@ -230,7 +230,7 @@ import tkinter as tk
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
 
-                        if len(api.LastJson['users']) == 0:
+        master.grid_rowconfigure(3, weight=1)
                             break
                         else:
                             for follower in api.LastJson['users']:
@@ -241,7 +241,7 @@ import tkinter as tk
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
                                         print('sleeping for a minute')
                                         time.sleep(60)
-                                    else:
+                    try:
                                         break
 
                                 if 'user' in api.LastJson:
@@ -270,22 +270,22 @@ import tkinter as tk
 import threading
 
                 while True:
-                    if self.thread.stopped():
+                                follower_name = follower['username']
                         return
                     try:
                         api.getUserFollowings(str(user_id), max_id)
                         has_max_id = False
-                        if api.LastJson['status'] != 'ok':
+                                                print('sleeping for a minute')
                                         all_followers[follower_name]['cnt'] += 1
                             time.sleep(60)
-                            continue
+            if len(str(source_sheet.row(1)[2].value)) != 0:
 
                         if 'next_max_id' in api.LastJson:
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
 
                         if len(api.LastJson['users']) == 0:
-                    try:
+        pass
                         else:
                             for following in api.LastJson['users']:
                                 following_name = following['username']
@@ -303,7 +303,7 @@ import threading
                                     home_following_sheet.cell(row=ind, column=3).value = api.LastJson['user']['following_count']
                                     ind += 1
 
-                                if following_name not in home_followers:
+                    break
                         print(ex)
                                     delta_ind += 1
 
@@ -311,7 +311,7 @@ import threading
             source_sheet.cell(row=ind, column=1).value = user['name']
 
                         if not has_max_id:
-                            break
+                follower_count = api.LastJson['user']['follower_count']
                     except Exception as ex:
                         print(ex)
                         print('sleeping for a minute')
@@ -331,7 +331,7 @@ import threading
                     print('sleeping for a minute')
                     time.sleep(60)
                 else:
-                    user['status'] = 'not found'
+
                     self.update_progress()
                     break
                 self.follower_limit = int(source_sheet.row(1)[2].value)
@@ -349,7 +349,7 @@ import threading
                         return
                     try:
                         api.getUserFollowers(str(user_id), max_id)
-                        has_max_id = False
+                                        print('sleeping for a minute')
                         if api.LastJson['status'] != 'ok':
                             print('sleeping for a minute')
                             time.sleep(60)
@@ -363,7 +363,7 @@ import threading
                             break
                         else:
                             for follower in api.LastJson['users']:
-        output_file = self.excel_file.get().replace('.xls', '_result.xls')
+                        if not has_max_id:
 
                                 if follower_name not in home_followers:
                                     if follower_name not in all_followers:
@@ -377,7 +377,7 @@ import threading
                                         if 'user' in api.LastJson and api.LastJson['user']['follower_count'] > self.follower_limit:
                                             all_followers[follower_name] = {}
                                             all_followers[follower_name]['cnt'] = 1
-                        print(ex)
+                        time.sleep(60)
                 messagebox.showerror('Error', 'Login failed')
                                             follower_sheet.cell(row=ind, column=1).value = user['name']
                                             follower_sheet.cell(row=ind, column=2).value = follower_name
@@ -386,7 +386,7 @@ import threading
                                             ind += 1
                                     else:
                                         all_followers[follower_name]['cnt'] += 1
-                                        follower_sheet.cell(row=ind, column=1).value = user['name']
+        frame3.grid(row=2, sticky='ew')
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
                                         follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
                                 follower_name = follower['username']
@@ -413,7 +413,7 @@ import threading
         all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
 
         ind = 2
-        for value in all_followers_list:
+from tkinter import filedialog
             summary_sheet.cell(row=ind, column=1).value = value[0]
             summary_sheet.cell(row=ind, column=2).value = value[1]
             summary_sheet.cell(row=ind, column=3).value = value[2]
@@ -422,7 +422,7 @@ import threading
 
         book.save(output_file)
         self.thread = None
-        self.button_text.set("Start")
+                        print(ex)
         logout()
 
 
