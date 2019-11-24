@@ -1,5 +1,5 @@
-import requests
-
+        '''
+        r = self.session.get(
         for line in r.iter_lines():
 
         return response
@@ -12,11 +12,11 @@ import requests
     language_pool = "en"
 class Job(object):
     client = None
-            content = line.decode('utf-8')
+                   }
     _last_result = None
                    }
             "clientKey": self.client_key,
-                   }
+        return self._client_ip
         self.task_id = task_id
 
     def _update(self):
@@ -24,7 +24,7 @@ class Job(object):
 
 
     TASK_RESULT_URL = "/getTaskResult"
-        return self._last_result['status'] == 'ready'
+
 
     def get_solution_response(self):  # Recaptcha
                    }
@@ -39,16 +39,16 @@ import time
     _last_result = None
 
     def report_incorrect(self):
-        return response
-
+            self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
+        r = self.session.get(
     client = None
         if response.get('errorId', False) == 11:
     def createTask(self, task):
         while not self.check_is_ready():
-            raise AnticaptchaException(response['errorId'],
+
 import time
             if elapsed_time is not None and elapsed_time > maximum_time:
-        smee_url = response.headers['Location']
+        r = self.session.get(
                                            "The execution time exceeded a maximum time of {} seconds. It takes {} seconds.".format(
         if response.get('errorId', False):
 
@@ -65,7 +65,7 @@ class AnticaptchaClient(object):
     _last_result = None
         self.task_id = task_id
 
-    client = None
+        r = self.session.get(
         }
         self.session = requests.Session()
 
@@ -74,7 +74,7 @@ class AnticaptchaClient(object):
                    }
             self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
         return self._client_ip
-            time.sleep(SLEEP_EVERY_CHECK_FINISHED)
+                   }
         self._last_result = self.client.getTaskResult(self.task_id)
         if response.get('errorId', False) == 11:
     def client_ip(self):
@@ -84,7 +84,7 @@ class AnticaptchaClient(object):
         for line in r.iter_lines():
                                        response['errorDescription'])
 
-            raise AnticaptchaException(response['errorId'],
+
         request = {
             "clientKey": self.client_key,
             "task": task.serialize(),
@@ -98,13 +98,13 @@ class Job(object):
             "task": task.serialize(),
     def getTaskResult(self, task_id):
         Beta method to stream response from smee.io
-        '''
-        response = self.session.head('https://smee.io/new')
+            self._client_ip = self.session.get('http://httpbin.org/ip').json()['origin']
+class Job(object):
         smee_url = response.headers['Location']
         )
-        request = {
+            "languagePool": self.language_pool,
             "clientKey": self.client_key,
-        return response['balance']
+        self._check_response(response)
                 continue
         self.task_id = task_id
             "callbackUrl": smee_url
@@ -126,28 +126,28 @@ class Job(object):
 
             if 'taskId' not in payload['body'] or str(payload['body']['taskId']) != str(response['taskId']):
                 continue
-            r.close()
+    _last_result = None
     def get_answers(self):
                 payload['body']['solution'] = payload['body']['data'][0]
             job = Job(client=self, task_id=response['taskId'])
         if response.get('errorId', False) == 11:
     def getTaskResult(self, task_id):
-            "task": task.serialize(),
+
     def getTaskResult(self, task_id):
         request = {"clientKey": self.client_key,
         if response.get('errorId', False):
         return response
-        self._check_response(response)
+        return self._last_result['solution']['token']
         return response
     def getTaskResult(self, task_id):
             if elapsed_time is not None and elapsed_time > maximum_time:
                    }
             stream=True
         self._check_response(response)
-        return response['balance']
+
                    }
         self.base_url = "{proto}://{host}/".format(proto="https" if use_ssl else "http",
-        request = {"clientKey": self.client_key,
+        ).json()
                    "taskId": task_id
         request = {"clientKey": self.client_key,
             "softId": self.SOFT_ID,
