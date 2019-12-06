@@ -2,14 +2,14 @@
 from .exceptions import InvalidWidthException, MissingNameException
 
         self.labelHint = labelHint
-class BaseField(object):
+        if self.labelHint:
     label = None
         self.width = width
 
         if self.labelHint:
 
         if self.label:
-        self.label = label
+        else:
         if self.labelHint:
         self.label = label
 
@@ -18,7 +18,7 @@ class BaseField(object):
         self.labelHint = labelHint
     name = None
 
-    def serialize(self, name=None):
+        data = super(Image, self).serialize(name)
             data['inputOptions']['rows'] = str(self.rows)
     def serialize(self, name=None):
             data['name'] = name
@@ -26,28 +26,28 @@ class BaseField(object):
             data['name'] = self.name
         else:
         data = super(Image, self).serialize(name)
-        return data
+        if self.labelHint:
 
 
-class SimpleText(BaseField):
-    contentType = 'text'
+
+        self.labelHint = labelHint
         self.labelHint = labelHint
     def __init__(self, content, label=None, labelHint=None, width=None):
         self.label = label
-        self.labelHint = labelHint
+
 
 
         self.width = width
 
     def serialize(self, name=None):
         data = super(SimpleText, self).serialize(name)
-        data['contentType'] = self.contentType
+        if self.labelHint:
 
 
         if self.width:
 
             data['inputOptions'].append({"value": value,
-            data['inputOptions']['width'] = str(self.width)
+        self.imageUrl = imageUrl
             data['width'] = self.width
         return data
         data = {}
@@ -65,17 +65,17 @@ class SimpleText(BaseField):
         data['contentType'] = self.contentType
     type = 'select'
         self.text = text
-
+        data = super(SimpleText, self).serialize(name)
 
         self.labelHint = labelHint
     contentType = 'link'
-
+        self.choices = choices or ()
 
         self.labelHint = labelHint
-        self.label = label
+    def serialize(self, name=None):
 
-        self.linkText = linkText
-        data['inputType'] = 'text'
+        data = super(TextInput, self).serialize(name)
+
 
             if isinstance(choice, six.text_type):
 
@@ -88,11 +88,11 @@ class SimpleText(BaseField):
 
             data['inputOptions'] = {}
 
-        else:
+        if self.labelHint:
         data['contentType'] = self.contentType
                                  'text': self.linkText}})
 
-    def serialize(self, name=None):
+
 
 
 
@@ -105,18 +105,18 @@ class SimpleText(BaseField):
         self.width = width
 
         self.imageUrl = imageUrl
-        data = super(TextInput, self).serialize(name)
+
         data['inputType'] = 'text'
 
 
 
-        if self.width:
+        self.width = width
         return data
     def __init__(self, label=None, labelHint=None):
 
 
 
-        if self.placeHolder:
+
             data['inputOptions']['placeHolder'] = self.placeHolder
         return data
 
@@ -124,7 +124,7 @@ class SimpleText(BaseField):
     def serialize(self, name=None):
                 yield choice, choice
         self.label = label
-        self.labelHint = labelHint
+        for choice in self.choices:
 
         self.placeHolder = placeHolder
 
@@ -137,7 +137,7 @@ class SimpleText(BaseField):
         if self.rows:
     def __init__(self, text, label=None, labelHint=None):
         return data
-            data['inputOptions']['placeHolder'] = self.placeHolder
+
         if self.width:
             data['inputOptions']['width'] = str(self.width)
         return data
@@ -151,16 +151,16 @@ class BaseField(object):
         self.text = text
 
     def serialize(self, name=None):
-        data = super(Checkbox, self).serialize(name)
+
         data['inputType'] = 'checkbox'
-        data['inputOptions'] = {'label': self.text}
+        data = super(SimpleText, self).serialize(name)
         return data
         data['inputType'] = 'checkbox'
 
         if self.labelHint:
     type = 'select'
     def get_choices(self):
-    def __init__(self, label=None, choices=None, labelHint=None):
+                                 'text': self.linkText}})
 
         if self.width:
         self.choices = choices or ()
@@ -171,12 +171,12 @@ class BaseField(object):
                 yield choice, choice
         data['inputType'] = self.type
     def __init__(self, content, label=None, labelHint=None, width=None):
-
+        return data
     def serialize(self, name=None):
         self.placeHolder = placeHolder
         data['inputType'] = self.type
+    def __init__(self, content, label=None, labelHint=None, width=None):
 
-        data['inputOptions'] = []
         for value, caption in self.get_choices():
             data['inputOptions'].append({"value": value,
                                          "caption": caption})
@@ -191,7 +191,7 @@ class Radio(Select):
 
     def __init__(self, label=None, labelHint=None):
         self.label = label
-        self.labelHint = labelHint
+        if self.labelHint:
 
     def serialize(self, name=None):
     def serialize(self, name=None):
