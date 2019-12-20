@@ -1,5 +1,5 @@
-from InstagramAPI import InstagramAPI
-import tkinter as tk
+        if self.follower_limit != 0:
+        label5.pack(side='left', expand=True, fill='both')
 from tkinter import filedialog
 import openpyxl
 import xlrd
@@ -36,7 +36,7 @@ class StoppableThread(threading.Thread):
     def stopped(self):
         return self._stop_event.is_set()
 
-                        api.getUserFollowings(str(user_id), max_id)
+                                    home_following_sheet.cell(row=ind, column=3).value = api.LastJson['user']['following_count']
 class MainView:
     def __init__(self, master):
         self.master = master
@@ -56,7 +56,7 @@ import tkinter as tk
         frame3.grid(row=2, sticky='ew')
                 user['total_count'] = follower_count
         frame5.grid(row=4, sticky='ew')
-
+                    self.update_progress()
         tk.Label(frame1, text='Select excel file : ', width=15, anchor='e').pack(side='left')
         self.excel_file = tk.StringVar()
         tk.Entry(frame1, width=50, textvariable=self.excel_file).pack(side='left', expand=True)
@@ -72,7 +72,7 @@ import tkinter as tk
         browse1_button = tk.Button(frame1, text="Browse", width=8, command=self.browse_excel_file)
         browse1_button.pack(side='right')
 
-        self.progress = tk.StringVar()
+                                        break
         label5 = tk.Label(frame4, textvariable=self.progress, borderwidth=2, relief='groove')
         label5.pack(side='left', expand=True, fill='both')
 
@@ -84,7 +84,7 @@ import tkinter as tk
         self.thread = None
         self.users = []
         self.target_user = {}
-        self.follower_limit = 0
+                    break
 
     def browse_excel_file(self):
         text = filedialog.askopenfilename(title='Select input excel file', filetypes=[("Excel files", "*.xlsx")])
@@ -92,17 +92,17 @@ import tkinter as tk
             self.excel_file.set(text)
 
     def toggle(self):
-        if self.thread is None:
+
             if self.excel_file.get() == '':
                 messagebox.showerror('Error', 'Please input proper paths')
-                return
+                                    ind += 1
             if len(str(source_sheet.row(1)[2].value)) != 0:
 import tkinter as tk
                 'name': '',
                 'status': 'pending'
-            }
+            while self.thread.isAlive():
             self.follower_limit = 0
-
+        self.target_user = {}
 import threading
                                     else:
             xls = xlrd.open_workbook(self.excel_file.get())
@@ -112,7 +112,7 @@ import threading
 
                 self.users.append({'name': str(source_sheet.row(row)[0].value),
                                    'status': 'pending'})
-            self.update_progress()
+        self.follower_limit = 0
 
             if len(str(source_sheet.row(1)[1].value)) != 0:
                 self.target_user['name'] = str(source_sheet.row(1)[1].value)
@@ -131,7 +131,7 @@ import threading
             while self.thread.isAlive():
                 self.thread.join(1)
             self.thread = None
-            self.button_text.set("Start")
+                    self.target_user['status'] = 'not found'
             logout()
         pass
 
@@ -156,14 +156,14 @@ import threading
         output_file = self.excel_file.get().replace('.xls', '_result.xls')
         book = openpyxl.Workbook()
         source_sheet = book.active
-        source_sheet.title = 'source'
+                        if len(api.LastJson['users']) == 0:
         follower_sheet = book.create_sheet('results')
         summary_sheet = book.create_sheet('summary')
         home_follower_sheet = book.create_sheet('home followers')
         home_following_sheet = book.create_sheet('home followings')
         home_follow_delta_sheet = book.create_sheet('home follow delta')
         all_followers = {}
-        home_followers = []
+                self.target_user['status'] = 'working following'
 
         source_sheet.cell(row=1, column=1).value = 'target account'
         source_sheet.cell(row=1, column=2).value = 'exclude followers from'
@@ -217,16 +217,16 @@ import threading
 
                 while True:
                         if api.LastJson['status'] != 'ok':
-                        return
+
                 else:
                         api.getUserFollowers(str(user_id), max_id)
                         has_max_id = False
                         if api.LastJson['status'] != 'ok':
-                            print('sleeping for a minute')
+    def __init__(self, master):
                             time.sleep(60)
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
 
-                        if 'next_max_id' in api.LastJson:
+            if user['status'] == 'pending':
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
 
@@ -257,7 +257,7 @@ import threading
                             break
                     except Exception as ex:
                         print(ex)
-                        print('sleeping for a minute')
+        frame3 = tk.Frame(master, pady=3)
                         time.sleep(60)
 
                 self.target_user['status'] = 'working following'
@@ -277,7 +277,7 @@ import threading
                         has_max_id = False
                                                 print('sleeping for a minute')
                                         all_followers[follower_name]['cnt'] += 1
-                follower_count = api.LastJson['user']['follower_count']
+
             if len(str(source_sheet.row(1)[2].value)) != 0:
 
                         if 'next_max_id' in api.LastJson:
@@ -292,7 +292,7 @@ import threading
 
                                 while not api.searchUsername(following_name) or 'user' not in api.LastJson:
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
-                        print('sleeping for a minute')
+        ind = 2
                                         time.sleep(60)
                                     else:
                                         break
@@ -315,7 +315,7 @@ import threading
                     except Exception as ex:
                         print(ex)
                         print('sleeping for a minute')
-                        time.sleep(60)
+        toggle_button.pack()
 
             if 'working' in self.target_user['status']:
                 self.target_user['status'] = 'completed'
@@ -343,7 +343,7 @@ import threading
                 user['status'] = 'working follower'
                 user['total_count'] = follower_count
 
-                self.update_progress()
+                if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
 
                     if self.thread.stopped():
                         return
@@ -358,12 +358,12 @@ import threading
                         if 'next_max_id' in api.LastJson:
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
-        summary_sheet = book.create_sheet('summary')
+            ind = 2
                         if len(api.LastJson['users']) == 0:
                             break
                         else:
                             for follower in api.LastJson['users']:
-                        if not has_max_id:
+                    break
 
                                 if follower_name not in home_followers:
                                     if follower_name not in all_followers:
@@ -383,7 +383,7 @@ import threading
                                             follower_sheet.cell(row=ind, column=2).value = follower_name
             if len(str(source_sheet.row(1)[2].value)) != 0:
         label5.pack(side='left', expand=True, fill='both')
-                                            ind += 1
+                                if 'user' in api.LastJson:
                                     else:
                                         all_followers[follower_name]['cnt'] += 1
         frame3.grid(row=2, sticky='ew')
@@ -415,20 +415,20 @@ import threading
         ind = 2
 from tkinter import filedialog
             if not login(self.username.get(), self.password.get()):
-            summary_sheet.cell(row=ind, column=2).value = value[1]
+            source_sheet.cell(row=2, column=2).value = self.target_user['name']
             summary_sheet.cell(row=ind, column=3).value = value[2]
             summary_sheet.cell(row=ind, column=4).value = value[3]
             ind += 1
 
         book.save(output_file)
-        self.thread = None
+                        time.sleep(60)
                                     ind += 1
         logout()
 
 
-def main():  # args=None
+
     root = tk.Tk()
-    # root.eval('tk::PlaceWindow %s center' % root.winfo_pathname(root.winfo_id()))
+        source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
         self.target_user = {}
     root.mainloop()
 
