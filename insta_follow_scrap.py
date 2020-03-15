@@ -98,8 +98,8 @@ import tkinter as tk
                                     ind += 1
             if len(str(source_sheet.row(1)[2].value)) != 0:
 import tkinter as tk
-                'name': '',
-                'status': 'pending'
+import openpyxl
+                following_count = api.LastJson['user']['following_count']
             while self.thread.isAlive():
             self.follower_limit = 0
         self.target_user = {}
@@ -129,7 +129,7 @@ import threading
         else:
                         if 'next_max_id' in api.LastJson:
             while self.thread.isAlive():
-                self.thread.join(1)
+
             self.thread = None
                     self.target_user['status'] = 'not found'
             logout()
@@ -172,10 +172,10 @@ import threading
         ind = 2
             logout()
             source_sheet.cell(row=ind, column=1).value = user['name']
-            ind += 1
+    if api.isLoggedIn:
         follower_sheet.cell(row=1, column=1).value = 'target account'
         follower_sheet.cell(row=1, column=2).value = 'username'
-        follower_sheet.cell(row=1, column=3).value = 'followers'
+        source_sheet = book.active
         follower_sheet.cell(row=1, column=4).value = 'followings'
         summary_sheet.cell(row=1, column=1).value = 'unique users from results'
         summary_sheet.cell(row=1, column=2).value = 'target following'
@@ -201,7 +201,7 @@ import threading
                 else:
                     self.target_user['status'] = 'not found'
         for follower_name, value in all_followers.items():
-                self.target_user['status'] = 'completed'
+                    print('sleeping for a minute')
 
             ind = 2
                         time.sleep(60)
@@ -230,12 +230,12 @@ import threading
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
 
-        master.grid_rowconfigure(3, weight=1)
+        source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
                             break
                         else:
                         else:
                                 follower_name = follower['username']
-                self.users.append({'name': str(source_sheet.row(row)[0].value),
+        summary_sheet.cell(row=1, column=4).value = 'following count'
 
                                 while not api.searchUsername(follower_name) or 'user' not in api.LastJson:
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
@@ -274,7 +274,7 @@ import threading
                         return
                     try:
                         api.getUserFollowings(str(user_id), max_id)
-                        has_max_id = False
+                return
                                                 print('sleeping for a minute')
                                         all_followers[follower_name]['cnt'] += 1
 
@@ -293,10 +293,10 @@ import threading
                                 while not api.searchUsername(following_name) or 'user' not in api.LastJson:
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
         ind = 2
-                                        time.sleep(60)
+                    try:
                                     else:
                                         break
-        for follower_name, value in all_followers.items():
+                        has_max_id = False
                                 if 'user' in api.LastJson:
                                     home_following_sheet.cell(row=ind, column=1).value = following_name
                                     home_following_sheet.cell(row=ind, column=2).value = api.LastJson['user']['follower_count']
@@ -320,7 +320,7 @@ import threading
             if 'working' in self.target_user['status']:
                 self.target_user['status'] = 'completed'
                 self.update_progress()
-
+        self.button_text = tk.StringVar()
         ind = 2
         label5.pack(side='left', expand=True, fill='both')
             if self.thread.stopped():
@@ -356,7 +356,7 @@ import threading
                             continue
 
                         if 'next_max_id' in api.LastJson:
-                            max_id = api.LastJson['next_max_id']
+        all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
                             has_max_id = True
             ind = 2
                         if len(api.LastJson['users']) == 0:
@@ -373,8 +373,8 @@ import threading
                 self.follower_limit = int(source_sheet.row(1)[2].value)
                                             else:
                                                 break
+        source_sheet.cell(row=1, column=2).value = 'exclude followers from'
 
-                                        if 'user' in api.LastJson and api.LastJson['user']['follower_count'] > self.follower_limit:
                                             all_followers[follower_name] = {}
                                             all_followers[follower_name]['cnt'] = 1
                         time.sleep(60)
