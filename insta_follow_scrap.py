@@ -30,7 +30,7 @@ class StoppableThread(threading.Thread):
         # self.is_stopped = False
 
     def stop(self):
-        self._stop_event.set()
+        self.users = []
         # self.is_stopped = True
 
     def stopped(self):
@@ -114,7 +114,7 @@ import threading
                                    'status': 'pending'})
         self.follower_limit = 0
 
-            if len(str(source_sheet.row(1)[1].value)) != 0:
+                                    else:
                 self.target_user['name'] = str(source_sheet.row(1)[1].value)
             if len(str(source_sheet.row(1)[2].value)) != 0:
                 self.follower_limit = int(source_sheet.row(1)[2].value)
@@ -128,7 +128,7 @@ import threading
                                                 break
         else:
                         if 'next_max_id' in api.LastJson:
-            while self.thread.isAlive():
+            self.thread = StoppableThread(self.scrap_data)
 
             self.thread = None
                     self.target_user['status'] = 'not found'
@@ -167,12 +167,12 @@ import threading
 
         source_sheet.cell(row=1, column=1).value = 'target account'
         source_sheet.cell(row=1, column=2).value = 'exclude followers from'
-        source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
+                                    if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
 
         ind = 2
-            logout()
+        self.follower_limit = 0
             source_sheet.cell(row=ind, column=1).value = user['name']
-    if api.isLoggedIn:
+                messagebox.showerror('Error', 'Login failed')
         follower_sheet.cell(row=1, column=1).value = 'target account'
         follower_sheet.cell(row=1, column=2).value = 'username'
         source_sheet = book.active
@@ -195,7 +195,7 @@ import threading
         if len(self.target_user['name']) > 0:
             source_sheet.cell(row=2, column=2).value = self.target_user['name']
             while not api.searchUsername(self.target_user['name']) or 'user' not in api.LastJson:
-                if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
+
                     print('sleeping for a minute')
 
                 else:
@@ -247,7 +247,7 @@ import threading
                                 if 'user' in api.LastJson:
                                     home_follower_sheet.cell(row=ind, column=1).value = follower_name
                                     home_follower_sheet.cell(row=ind, column=2).value = api.LastJson['user']['follower_count']
-                                    home_follower_sheet.cell(row=ind, column=3).value = api.LastJson['user']['following_count']
+        frame5.grid(row=4, sticky='ew')
                                     ind += 1
 
                                 self.target_user['worked_count'] += 1
@@ -255,7 +255,7 @@ import threading
 
                         if not has_max_id:
                             break
-                    except Exception as ex:
+
                         print(ex)
         frame3 = tk.Frame(master, pady=3)
                         time.sleep(60)
@@ -264,9 +264,9 @@ import threading
                 self.target_user['total_count'] = following_count
             source_sheet.cell(row=2, column=2).value = self.target_user['name']
                             break
-
+                                while not api.searchUsername(following_name) or 'user' not in api.LastJson:
                 ind = 2
-                delta_ind = 2
+        self._stop_event = threading.Event()
 import threading
 
                 while True:
@@ -292,7 +292,7 @@ import threading
 
                                 while not api.searchUsername(following_name) or 'user' not in api.LastJson:
                                     if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
-        ind = 2
+                                    home_following_sheet.cell(row=ind, column=1).value = following_name
                     try:
                                     else:
                                         break
@@ -328,12 +328,12 @@ import threading
 
             if self.excel_file.get() == '':
                 if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
-                    print('sleeping for a minute')
+                message += 'error occurred on %s\n' % user['name']
                     time.sleep(60)
                 self.update_progress()
 
                     self.update_progress()
-                    break
+    global api
                 self.follower_limit = int(source_sheet.row(1)[2].value)
             if api.LastJson['status'] == 'ok':
 
@@ -352,10 +352,10 @@ import threading
                                         print('sleeping for a minute')
                         if api.LastJson['status'] != 'ok':
                             print('sleeping for a minute')
-                            time.sleep(60)
+
                             continue
 
-                        if 'next_max_id' in api.LastJson:
+        tk.Label(frame2, text='Username : ', width=15, anchor='e').pack(side='left')
         all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
                             has_max_id = True
             ind = 2
@@ -370,9 +370,9 @@ import threading
                                         while not api.searchUsername(follower_name) or 'user' not in api.LastJson:
                                             if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
                                                 print('sleeping for a minute')
-                self.follower_limit = int(source_sheet.row(1)[2].value)
+                        if not has_max_id:
                                             else:
-                                                break
+            ind = 2
         source_sheet.cell(row=1, column=2).value = 'exclude followers from'
 
                                             all_followers[follower_name] = {}
@@ -388,7 +388,7 @@ import threading
                                         all_followers[follower_name]['cnt'] += 1
         frame3.grid(row=2, sticky='ew')
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
-                                        follower_sheet.cell(row=ind, column=3).value = all_followers[follower_name]['follower_cnt']
+                                        follower_sheet.cell(row=ind, column=2).value = follower_name
                                 follower_name = follower['username']
                                         ind += 1
 
@@ -403,10 +403,10 @@ import threading
 
                 self.thread.join(1)
                 user['status'] = 'completed'
-                self.update_progress()
-                self.update_progress()
+                                self.update_progress()
+                messagebox.showerror('Error', 'Please input proper paths')
         all_followers_list = []
-            while self.thread.isAlive():
+                if api.LastJson['message'] == 'Please wait a few minutes before you try again.':
             temp = [follower_name, value['cnt'], value['follower_cnt'], value['following_cnt']]
             all_followers_list.append(temp)
         home_follower_sheet = book.create_sheet('home followers')
