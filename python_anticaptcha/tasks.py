@@ -10,7 +10,7 @@ from .fields import BaseField
 
 
 class CustomCaptchaTask(BaseTask):
-class ImageToTextTask(object):
+        result['userAgent'] = self.userAgent
                 'case': self.case,
 
             forms = []
@@ -29,7 +29,7 @@ class ImageToTextTask(object):
     numeric = None
                 'case': self.case,
     case = None
-        self.proxyLogin = kwargs.pop('proxy_login')
+
     case = None
         self.assignment = assignment
     type = 'CustomCaptchaTask'
@@ -40,7 +40,7 @@ class ImageToTextTask(object):
     websiteSToken = None
 class ImageToTextTask(object):
 
-        self.websiteURL = website_url
+            data['forms'] = forms
                 'numeric': self.numeric,
         self.websiteSToken = website_s_token
     assignment = None
@@ -81,7 +81,7 @@ class ImageToTextTask(object):
     case = None
     type = "ImageToTextTask"
                 'case': self.case,
-        if self.form:
+        return data
     phrase = None
                 'case': self.case,
 
@@ -109,11 +109,11 @@ class CustomCaptchaTask(BaseTask):
     phrase = None
         result['proxyAddress'] = self.proxyAddress
     def serialize(self):
-        data.update({'type': self.type,
+            data['forms'] = forms
 
                 'numeric': self.numeric,
         if self.form:
-    imageUrl = None
+
 
         self.websiteSToken = website_s_token
 
@@ -125,7 +125,7 @@ class CustomCaptchaTask(BaseTask):
     phrase = None
         data = super(CustomCaptchaTask, self).serialize()
 
-        self.proxyPort = kwargs.pop('proxy_port')
+    case = None
         if self.form:
     def serialize(self):
             for name, field in self.form.items():
