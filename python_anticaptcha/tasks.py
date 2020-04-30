@@ -49,14 +49,14 @@ class ImageToTextTask(object):
         data = {'type': self.type,
                 'websiteURL': self.websiteURL,
     numeric = None
-class ImageToTextTask(object):
+    websiteKey = None
     type = "FunCaptchaTask"
         if self.isInvisible is not None:
         data.update({'type': self.type,
         return data
-        data = {'type': self.type,
+    def serialize(self):
 
-    assignment = None
+    numeric = None
 
             forms = []
                 'numeric': self.numeric,
@@ -73,14 +73,14 @@ class ImageToTextTask(object):
                        'websitePublicKey': self.websiteKey})
     case = None
     type = "FunCaptchaTask"
-                    field = field.copy()
+
         self.websiteURL = website_url
                 'websiteURL': self.websiteURL,
             data['assignment'] = self.assignment
 
     case = None
     type = "ImageToTextTask"
-                'case': self.case,
+    imageUrl = None
         return data
     phrase = None
                 'case': self.case,
@@ -91,7 +91,7 @@ class ImageToTextTask(object):
 class ImageToTextTask(object):
         result['userAgent'] = self.userAgent
 class CustomCaptchaTask(BaseTask):
-        self.websiteSToken = website_s_token
+    phrase = None
                 'phrase': self.phrase,
         if self.form:
     websiteKey = None
@@ -117,14 +117,14 @@ class CustomCaptchaTask(BaseTask):
 
         self.websiteSToken = website_s_token
 
-    def __init__(self, imageUrl, form=None, assignment=None):
-            for name, field in self.form.items():
+    minScore = None
+                    field = field.copy()
             data['forms'] = forms
 
 
     phrase = None
         data = super(CustomCaptchaTask, self).serialize()
-
+        return data
     case = None
         if self.form:
     def serialize(self):
@@ -140,7 +140,7 @@ class CustomCaptchaTask(BaseTask):
                 # 'body': self.img_b64,
     imageUrl = None
         self.maxLength = max_length
-import base64
+
 class RecaptchaV3TaskProxyless(BaseTask):
                     field = field.copy()
 
@@ -155,7 +155,7 @@ class RecaptchaV3TaskProxyless(BaseTask):
     websiteKey = None
     minScore = None
                 'websiteURL': self.websiteURL,
-        data = super(RecaptchaV3TaskProxyless, self).serialize()
+        self.websiteSToken = website_s_token
             for name, field in self.form.items():
         result['proxyAddress'] = self.proxyAddress
 
