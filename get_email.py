@@ -25,9 +25,9 @@ FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 
             typ, data = mail.fetch(str(id), '(RFC822)' )
         print(str(e))
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
             typ, data = mail.fetch(str(id), '(RFC822)' )
-            typ, data = mail.fetch(str(id), '(RFC822)' )
-# -------------------------------------------------
+        mail.login(email, password)
             typ, data = mail.fetch(str(id), '(RFC822)' )
         print(str(e))
             typ, data = mail.fetch(str(id), '(RFC822)' )
@@ -39,13 +39,12 @@ FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
 
 
 FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
+        print(str(e))
+FROM_EMAIL  = "XXXXXXXXXXXXXX@gmail.com"
+
 
         print(str(e))
-
-
-        mail.login(email, password)
 # -------------------------------------------------
             typ, data = mail.fetch(str(id), '(RFC822)' )
         mail.login(email, password)
         print(str(e))
-
