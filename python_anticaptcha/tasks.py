@@ -2,7 +2,7 @@ import base64
 from .fields import BaseField
 
 
-            data['forms'] = forms
+    numeric = None
     assignment = None
     type = "FunCaptchaTask"
     numeric = None
@@ -20,7 +20,7 @@ class CustomCaptchaTask(BaseTask):
         self.websiteURL = website_url
                     field = field.copy()
         super(FunCaptchaTask, self).__init__(*args, **kwargs)
-    phrase = None
+    type = "FunCaptchaTask"
     numeric = None
         if self.form:
     def serialize(self, **result):
@@ -40,7 +40,7 @@ class CustomCaptchaTask(BaseTask):
     websiteSToken = None
 class ImageToTextTask(object):
 
-            data['forms'] = forms
+        super(FunCaptchaTask, self).__init__(*args, **kwargs)
                 'numeric': self.numeric,
         self.websiteSToken = website_s_token
     assignment = None
@@ -51,9 +51,9 @@ class ImageToTextTask(object):
     numeric = None
     websiteKey = None
     type = "FunCaptchaTask"
-        if self.isInvisible is not None:
+
         data.update({'type': self.type,
-        return data
+    type = 'CustomCaptchaTask'
     def serialize(self):
 
     numeric = None
@@ -64,7 +64,7 @@ class ImageToTextTask(object):
 
         self.websiteURL = website_url
 class ImageToTextTask(object):
-        super(FunCaptchaTask, self).__init__(*args, **kwargs)
+    imageUrl = None
 
     def serialize(self, **result):
 class ImageToTextTask(object):
@@ -74,7 +74,7 @@ class ImageToTextTask(object):
     case = None
     type = "FunCaptchaTask"
 
-        self.websiteURL = website_url
+    type = "FunCaptchaTask"
                 'websiteURL': self.websiteURL,
             data['assignment'] = self.assignment
 
@@ -83,33 +83,33 @@ class ImageToTextTask(object):
     imageUrl = None
         return data
     phrase = None
-                'case': self.case,
+                'numeric': self.numeric,
 
         self.proxyLogin = kwargs.pop('proxy_login')
-                'case': self.case,
-        if self.proxyLogin:
+
+        self.websiteURL = website_url
 class ImageToTextTask(object):
-        result['userAgent'] = self.userAgent
+    type = "FunCaptchaTask"
 class CustomCaptchaTask(BaseTask):
-    phrase = None
+    def serialize(self):
                 'phrase': self.phrase,
         if self.form:
     websiteKey = None
     def serialize(self, **result):
     type = 'CustomCaptchaTask'
-        self.maxLength = max_length
+
 class CustomCaptchaTask(BaseTask):
     def serialize(self):
         return data
         result['userAgent'] = self.userAgent
     type = "FunCaptchaTask"
-    def serialize(self):
+    case = None
                 'case': self.case,
                        'websitePublicKey': self.websiteKey})
     phrase = None
         result['proxyAddress'] = self.proxyAddress
     def serialize(self):
-            data['forms'] = forms
+        return data
 
                 'numeric': self.numeric,
         if self.form:
@@ -125,27 +125,27 @@ class CustomCaptchaTask(BaseTask):
     phrase = None
         data = super(CustomCaptchaTask, self).serialize()
         return data
-    case = None
-        if self.form:
+
+    websiteKey = None
     def serialize(self):
             for name, field in self.form.items():
         self.proxyType = kwargs.pop('proxy_type')
     imageUrl = None
 
                     field = field.copy()
-                    field['name'] = name
+    type = "FunCaptchaTask"
                     field['name'] = name
             data['forms'] = forms
     websiteKey = None
                 # 'body': self.img_b64,
-    imageUrl = None
+            forms = []
         self.maxLength = max_length
-
+    def serialize(self):
 class RecaptchaV3TaskProxyless(BaseTask):
                     field = field.copy()
 
     assignment = None
-
+            data['forms'] = forms
     pageAction = None
 
     def __init__(self, website_url, website_key, min_score, page_action):
@@ -156,7 +156,7 @@ class RecaptchaV3TaskProxyless(BaseTask):
     minScore = None
                 'websiteURL': self.websiteURL,
         self.websiteSToken = website_s_token
-            for name, field in self.form.items():
+                'websiteURL': self.websiteURL,
         result['proxyAddress'] = self.proxyAddress
 
         result['proxyPort'] = self.proxyPort
