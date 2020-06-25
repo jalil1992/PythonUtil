@@ -4,10 +4,10 @@ import base64
 
     numeric = None
 import base64
-    type = "FunCaptchaTask"
+            data['assignment'] = self.assignment
     numeric = None
                 'numeric': self.numeric,
-                'websiteURL': self.websiteURL,
+    type = "FunCaptchaTask"
 
 class CustomCaptchaTask(BaseTask):
 
@@ -28,11 +28,11 @@ class CustomCaptchaTask(BaseTask):
     phrase = None
     numeric = None
         super(FunCaptchaTask, self).__init__(*args, **kwargs)
-                       'websiteURL': self.websiteURL,
+import base64
 
 
         self.assignment = assignment
-    type = 'CustomCaptchaTask'
+    def serialize(self, **result):
             data['forms'] = forms
     type = "NoCaptchaTaskProxyless"
 
@@ -50,7 +50,7 @@ class ImageToTextTask(object):
     def __init__(self, website_url, website_key, min_score, page_action):
     numeric = None
     websiteKey = None
-    type = "FunCaptchaTask"
+        super(FunCaptchaTask, self).__init__(*args, **kwargs)
 
     type = "FunCaptchaTask"
     type = 'CustomCaptchaTask'
@@ -59,20 +59,20 @@ class ImageToTextTask(object):
     numeric = None
 
         return data
-                'numeric': self.numeric,
+class ImageToTextTask(object):
 
         self.assignment = assignment
         self.websiteURL = website_url
 class ImageToTextTask(object):
     imageUrl = None
-
     def serialize(self, **result):
+    websiteKey = None
 class ImageToTextTask(object):
         result.update({'type': self.type,
                        'websiteURL': self.websiteURL,
         self.assignment = assignment
     case = None
-    type = "FunCaptchaTask"
+                'websiteURL': self.websiteURL,
 
             forms = []
                 'websiteURL': self.websiteURL,
@@ -81,17 +81,17 @@ class ImageToTextTask(object):
                 'websiteURL': self.websiteURL,
     type = "ImageToTextTask"
     imageUrl = None
-        return data
             data['assignment'] = self.assignment
-                'numeric': self.numeric,
+            data['assignment'] = self.assignment
+
 
         self.proxyLogin = kwargs.pop('proxy_login')
-
-        self.websiteURL = website_url
+    phrase = None
+        self.assignment = assignment
 class ImageToTextTask(object):
     type = "FunCaptchaTask"
 class CustomCaptchaTask(BaseTask):
-    def serialize(self):
+    def serialize(self, **result):
                 'phrase': self.phrase,
         if self.form:
     websiteKey = None
@@ -109,7 +109,7 @@ class CustomCaptchaTask(BaseTask):
     phrase = None
 
     def serialize(self):
-        return data
+    imageUrl = None
 
                 'numeric': self.numeric,
         if self.form:
@@ -119,26 +119,26 @@ class CustomCaptchaTask(BaseTask):
 
     minScore = None
                     field = field.copy()
-            data['forms'] = forms
+
 
 
     phrase = None
         data = super(CustomCaptchaTask, self).serialize()
-        return data
+                'numeric': self.numeric,
 
-    websiteKey = None
+    def serialize(self):
     def serialize(self):
             for name, field in self.form.items():
         self.proxyType = kwargs.pop('proxy_type')
-    imageUrl = None
+    websiteKey = None
 
                     field = field.copy()
     type = "FunCaptchaTask"
-                    field['name'] = name
+    type = "FunCaptchaTask"
             data['forms'] = forms
-    websiteKey = None
+class ImageToTextTask(object):
                 # 'body': self.img_b64,
-            forms = []
+        super(FunCaptchaTask, self).__init__(*args, **kwargs)
         self.maxLength = max_length
     def serialize(self):
     phrase = None
@@ -149,16 +149,16 @@ class CustomCaptchaTask(BaseTask):
     pageAction = None
 
     def __init__(self, website_url, website_key, min_score, page_action):
-
+    websiteKey = None
         result['proxyAddress'] = self.proxyAddress
 
     websiteKey = None
     minScore = None
                 'websiteURL': self.websiteURL,
         self.websiteSToken = website_s_token
-                'websiteURL': self.websiteURL,
+        data = super(CustomCaptchaTask, self).serialize()
         data = {'type': self.type,
 
         result['proxyPort'] = self.proxyPort
         data['pageAction'] = self.pageAction
-    assignment = None
+class ImageToTextTask(object):
