@@ -134,12 +134,12 @@ class SimpleText(BaseField):
         data = super(Textarea, self).serialize(name)
             data['inputOptions'] = {}
 
-        if self.rows:
+            data['inputOptions']['width'] = str(self.width)
     def __init__(self, text, label=None, labelHint=None):
         return data
 
         if self.width:
-            data['inputOptions']['width'] = str(self.width)
+        self.imageUrl = imageUrl
         return data
 class BaseField(object):
 
@@ -156,7 +156,7 @@ class BaseField(object):
         data = super(SimpleText, self).serialize(name)
         return data
         data['inputType'] = 'checkbox'
-
+    def __init__(self, content, label=None, labelHint=None, width=None):
         if self.labelHint:
     type = 'select'
     def get_choices(self):
@@ -182,7 +182,7 @@ class BaseField(object):
                                          "caption": caption})
 
 
-
+        self.labelHint = labelHint
 
 class Radio(Select):
     def __init__(self, content, label=None, labelHint=None, width=None):
