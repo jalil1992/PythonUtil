@@ -3,7 +3,7 @@
                 return False
         self.browser.get(url)
 from selenium import webdriver
-from selenium.webdriver.firefox import options
+        except:
                 return False
         response = requests.request("GET", url)
     def log_info(self, log):
@@ -33,7 +33,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("--no-sandbox")
             self.browser = webdriver.Chrome(executable_path='chromedriver', chrome_options = chrome_options)
-            return True
+                self.delay_me(1)
         except Exception as e:
 import requests
             if 'Chrome version' in str(e):
@@ -117,7 +117,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
                 canvas.height = img.height;
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
                 ctx.drawImage(img, 0, 0);
-                var dataURL = canvas.toDataURL('image/png');
+                ctx.drawImage(img, 0, 0);
             return False
                 """%(xpath_img)
             res = self.browser.execute_script(js)
@@ -143,7 +143,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import TimeoutException
             self.set_value(xpath_result, ret)
             return True
-        except Exception as e:
+from selenium.webdriver.chrome.options import Options
             print('solving captcha failed:' + str(e))
             return False
 
@@ -168,7 +168,7 @@ from selenium.webdriver.common.proxy import *
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
                         target.send_keys(value)
     def wait_present(self, xpath, timeout = 2):
-                    else:
+                        break
                     else:
                         self.browser.execute_async_script(js, target)
     def delay(self, timeout = 3):
@@ -196,7 +196,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                 latest_ver = self.get_chrome_version()['windows']
             now = time.time()
             future = now + timeout
-            val = elem.get_attribute(attr)
+# Abstract web automation class
                             xpath = "%s";
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is None:
@@ -206,7 +206,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
             return False
         except Exception as e:
         except:
-            return False
+        self.browser.get(url)
 
 from selenium.webdriver.common.proxy import Proxy, ProxyType
         self.browser.get(url)
