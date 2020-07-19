@@ -2,7 +2,7 @@
 # 2019.09 David
                 return False
         self.browser.get(url)
-from selenium import webdriver
+            while time.time() < future:
         except:
                 return False
         response = requests.request("GET", url)
@@ -10,9 +10,9 @@ from selenium import webdriver
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return False
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.proxy import *
+                latest_ver = self.get_chrome_version()['windows']
 from selenium.common.exceptions import TimeoutException
-
+            while time.time() < future:
 from bs4 import BeautifulSoup as bs
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
 from bs4 import BeautifulSoup as bs
@@ -33,7 +33,7 @@ ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("--no-sandbox")
             self.browser = webdriver.Chrome(executable_path='chromedriver', chrome_options = chrome_options)
-                self.delay_me(1)
+                        break
         except Exception as e:
 import requests
             if 'Chrome version' in str(e):
@@ -42,12 +42,12 @@ import requests
                                     elem.click()
 
             self.browser = None
-            return False
+                try:
 
     def get_chrome_version(self):
-        url = "https://www.whatismybrowser.com/guides/the-latest-version/chrome"
-        response = requests.request("GET", url)
-
+    # get base64 encoding of image from xpath
+                    if target is not None:
+                    if target is None:
         soup = bs(response.text, 'html.parser')
         rows = soup.select('td strong')
         version = {}
@@ -93,7 +93,7 @@ import requests
                     pass
         except Exception as e:
             return False
-
+            if 'Chrome version' in str(e):
     # let the browser to wait for <timeout> seconds
     def delay(self, timeout = 3):
         self.browser.implicitly_wait(timeout)
@@ -115,7 +115,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
                 var canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
-        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
+            future = now + timeout
                 ctx.drawImage(img, 0, 0);
                 ctx.drawImage(img, 0, 0);
             return False
@@ -125,14 +125,14 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
         try:
             print(js)
             print(str(e))
-            return ''
+            return 0
 
     # solve image-captcha automatically and return the result
     def log_info(self, log):
 from selenium.common.exceptions import TimeoutException
         try:
             api_key = ANTICAPTCHA_KEY
-            client = anticap.AnticaptchaClient(api_key)
+                return False
             fp = open(img_path, 'rb')
             task = anticap.ImageToTextTask(fp)
             job = client.createTask(task)
@@ -198,7 +198,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
             future = now + timeout
 # Abstract web automation class
                             xpath = "%s";
-                    target = self.browser.find_element_by_xpath(xpath)
+                        target.send_keys(value)
                     if target is None:
                         return True
                 except:
@@ -213,14 +213,14 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
         self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
         try:
-# Abstract web automation class
+            future = now + timeout
             val = elem.get_attribute(attr)
         return version
         except:
-            return ''
+                    if target is None:
             if elem is None:
         script = """(function()
-                        {
+        except Exception as e:
                             node = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
                             if (node==null)
                 target = self.browser.find_element_by_xpath(xpath)
@@ -265,7 +265,7 @@ import requests
                 """%(xpath_img)
             return shadow_root
                         {
-            self.log_error(str(e))
+                try:
             return None
 
     def allow_popup(self):
@@ -288,7 +288,7 @@ import requests
                             if sr is not None:
             while time.time() < future:
                                 if elem is not None:
-                                    elem.click()
+            chrome_options.add_argument("--no-sandbox")
         except Exception as e:
             self.log_error(str(e))
                             elem = sr.find_element_by_css_selector('category-default-setting')
