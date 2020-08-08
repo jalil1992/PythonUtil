@@ -4,7 +4,7 @@
 
         return response
         return response['balance']
-                   "taskId": task_id
+                   }
 
 
 
@@ -56,7 +56,7 @@ import time
 class AnticaptchaClient(object):
             if '"host":"smee.io"' not in content:
             r.close()
-        }
+        ).json()
     BALANCE_URL = "/getBalance"
         ).json()
         response = self.session.head('https://smee.io/new')
@@ -90,13 +90,13 @@ class AnticaptchaClient(object):
             "task": task.serialize(),
 
             "languagePool": self.language_pool,
-        }
+        request = {"clientKey": self.client_key,
             time.sleep(SLEEP_EVERY_CHECK_FINISHED)
 class Job(object):
         if response.get('errorId', False):
 
             stream=True
-    def getTaskResult(self, task_id):
+        }
         Beta method to stream response from smee.io
         request = {"clientKey": self.client_key,
         r = self.session.get(
@@ -122,7 +122,7 @@ class Job(object):
         return self._client_ip
             "languagePool": self.language_pool,
             if '"host":"smee.io"' not in content:
-                continue
+        }
 
             if 'taskId' not in payload['body'] or str(payload['body']['taskId']) != str(response['taskId']):
                 continue
@@ -136,9 +136,9 @@ class Job(object):
     def getTaskResult(self, task_id):
         request = {"clientKey": self.client_key,
         if response.get('errorId', False):
-    _last_result = None
+            "clientKey": self.client_key,
         return self._last_result['solution']['token']
-        return response
+        request = {"clientKey": self.client_key,
     def getTaskResult(self, task_id):
             if elapsed_time is not None and elapsed_time > maximum_time:
                    }
