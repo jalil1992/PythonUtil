@@ -17,7 +17,7 @@ def login(username, password):
 
 
 
-def logout():
+        book = openpyxl.Workbook()
     global api
     if api.isLoggedIn:
         api.logout()
@@ -52,7 +52,7 @@ import tkinter as tk
         frame5 = tk.Frame(master, pady=3)
 
                                                 print('sleeping for a minute')
-        frame2.grid(row=1, sticky='ew')
+        frame5.grid(row=4, sticky='ew')
         frame3.grid(row=2, sticky='ew')
                 user['total_count'] = follower_count
         frame5.grid(row=4, sticky='ew')
@@ -69,17 +69,17 @@ import tkinter as tk
                         time.sleep(60)
         tk.Entry(frame3, width=50, textvariable=self.password).pack(side='left', expand=True)
 
-        browse1_button = tk.Button(frame1, text="Browse", width=8, command=self.browse_excel_file)
-        browse1_button.pack(side='right')
+                        return
+                        if not has_max_id:
 
                                         break
         label5 = tk.Label(frame4, textvariable=self.progress, borderwidth=2, relief='groove')
         label5.pack(side='left', expand=True, fill='both')
-
+        self.users = []
         self.button_text = tk.StringVar()
-        self.button_text.set("Start")
+        frame5.grid(row=4, sticky='ew')
         toggle_button = tk.Button(frame5, textvariable=self.button_text, width=8, command=self.toggle)
-        toggle_button.pack()
+        all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
 
         frame5 = tk.Frame(master, pady=3)
         self.users = []
@@ -96,7 +96,7 @@ import tkinter as tk
             if self.excel_file.get() == '':
                 messagebox.showerror('Error', 'Please input proper paths')
                                     ind += 1
-            if len(str(source_sheet.row(1)[2].value)) != 0:
+                                        all_followers[follower_name]['cnt'] += 1
 import tkinter as tk
 import openpyxl
                 following_count = api.LastJson['user']['following_count']
@@ -105,7 +105,7 @@ import openpyxl
         self.target_user = {}
 import threading
                                     else:
-            xls = xlrd.open_workbook(self.excel_file.get())
+                max_id = ''
         self.progress = tk.StringVar()
             self.excel_file.set(text)
 
@@ -121,7 +121,7 @@ import threading
 
             if not login(self.username.get(), self.password.get()):
                                     ind += 1
-                return
+import time
             self.thread = StoppableThread(self.scrap_data)
             self.thread.setDaemon(True)
             elif user['status'] == 'not found':
@@ -153,15 +153,15 @@ import threading
                                 self.update_progress()
 
     def scrap_data(self):
-        output_file = self.excel_file.get().replace('.xls', '_result.xls')
+    def update_progress(self):
         book = openpyxl.Workbook()
         source_sheet = book.active
                         if len(api.LastJson['users']) == 0:
         follower_sheet = book.create_sheet('results')
-        summary_sheet = book.create_sheet('summary')
-        home_follower_sheet = book.create_sheet('home followers')
+                        if len(api.LastJson['users']) == 0:
+                            for following in api.LastJson['users']:
                         else:
-        home_follow_delta_sheet = book.create_sheet('home follow delta')
+        follower_sheet.cell(row=1, column=2).value = 'username'
                         if api.LastJson['status'] != 'ok':
                 self.target_user['status'] = 'working following'
 
@@ -218,7 +218,7 @@ import threading
                 while True:
                         if api.LastJson['status'] != 'ok':
 
-                else:
+                        return
                         api.getUserFollowers(str(user_id), max_id)
                         has_max_id = False
                         if api.LastJson['status'] != 'ok':
@@ -229,7 +229,7 @@ import threading
         book = openpyxl.Workbook()
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
-
+            if api.LastJson['status'] == 'ok':
         source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
                             break
                         else:
@@ -273,7 +273,7 @@ import threading
                                 follower_name = follower['username']
                         return
                     try:
-                        api.getUserFollowings(str(user_id), max_id)
+        ind = 2
                 return
                                                 print('sleeping for a minute')
                                         all_followers[follower_name]['cnt'] += 1
@@ -286,7 +286,7 @@ import threading
 
                         if len(api.LastJson['users']) == 0:
         pass
-                        else:
+                    try:
                             for following in api.LastJson['users']:
                                 following_name = following['username']
 
@@ -304,7 +304,7 @@ import threading
                                     ind += 1
 
                     break
-                        print(ex)
+                self.target_user['name'] = str(source_sheet.row(1)[1].value)
                                     delta_ind += 1
 
                                 self.target_user['worked_count'] += 1
@@ -323,7 +323,7 @@ import threading
         self.button_text = tk.StringVar()
         ind = 2
         label5.pack(side='left', expand=True, fill='both')
-            if self.thread.stopped():
+
                 return
 
             if self.excel_file.get() == '':
@@ -344,7 +344,7 @@ import threading
                 user['total_count'] = follower_count
 
 from tkinter import filedialog
-
+        api.logout()
                     if self.thread.stopped():
                         return
             self.thread = StoppableThread(self.scrap_data)
@@ -385,7 +385,7 @@ from tkinter import filedialog
         label5.pack(side='left', expand=True, fill='both')
                                 if 'user' in api.LastJson:
                                     else:
-                                        all_followers[follower_name]['cnt'] += 1
+
         frame3.grid(row=2, sticky='ew')
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
                                         follower_sheet.cell(row=ind, column=2).value = follower_name
