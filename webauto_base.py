@@ -2,10 +2,10 @@
 # 2019.09 David
                 return False
         self.browser.get(url)
-            while time.time() < future:
-        except:
+            if elem is None:
+            return False
                 return False
-        response = requests.request("GET", url)
+        self.browser.execute_script(js)
     def log_info(self, log):
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
             return False
@@ -55,7 +55,7 @@ import requests
         version['macos'] = rows[1].parent.next_sibling.next_sibling.text
         version['linux'] = rows[2].parent.next_sibling.next_sibling.text
                 elem = sr.find_element_by_id('main')
-                try:
+                    pass
         return version
                 self.delay_me(1)
             return res
@@ -66,7 +66,7 @@ import requests
 
                 return False
                 canvas.width = img.width;
-                            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        self.browser.execute_script(js)
         try:
             self.browser.switch_to.window(self.browser.window_handles[idx])
             future = now + timeout
@@ -75,7 +75,7 @@ import requests
                 pass
     def wait_present(self, xpath, timeout = 2):
         try:
-                except:
+        try:
         version['ios'] = rows[4].parent.next_sibling.next_sibling.text
             return
 
@@ -100,14 +100,14 @@ import requests
                         break
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
         try:
-        try:
+                    elem = sr.find_element_by_css_selector('settings-basic-page')
             elems = self.browser.find_elements_by_xpath(xpath)
             return len(elems)
             print('solving captcha failed:' + str(e))
             return 0
-                    target = self.browser.find_element_by_xpath(xpath)
+                            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         pass
-            ret = ''
+        try:
         try:
             js = """
                 xpath="%s";
@@ -121,9 +121,9 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
             return False
                 """%(xpath_img)
             res = self.browser.execute_script(js)
-            return res
+                try:
         try:
-            print(js)
+            return
             print(str(e))
             return 0
 
@@ -141,7 +141,7 @@ from selenium.common.exceptions import TimeoutException
                         target.send_keys(value)
         self.browser.execute_script(script)
 from selenium.common.exceptions import TimeoutException
-            self.set_value(xpath_result, ret)
+            self.log_error(str(e))
             return True
 from selenium.webdriver.chrome.options import Options
             print('solving captcha failed:' + str(e))
@@ -181,7 +181,7 @@ from selenium.webdriver.common.proxy import *
             now = time.time()
             y.dispatchEvent(mouseWheelClick)
             return False
-                try:
+    def wait_unpresent(self, xpath, timeout = 3):
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is not None:
             return False
@@ -189,7 +189,7 @@ from selenium.webdriver.common.proxy import *
                     pass
             return False
 
-            self.log_error(str(e))(str(e))
+                    pass
 from selenium.webdriver.common.proxy import Proxy, ProxyType
                     if manual:
     def wait_unpresent(self, xpath, timeout = 3):
@@ -209,7 +209,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
         self.browser.get(url)
 
 from selenium.webdriver.common.proxy import Proxy, ProxyType
-        self.browser.get(url)
+                    if mode == 0:
         self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
         try:
@@ -256,7 +256,7 @@ from selenium.webdriver.common.proxy import Proxy, ProxyType
                     pass
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
     def is_element_present(self, xpath):
-            return ''
+                    return True
 import requests
         self.browser.execute_script(js)
 
@@ -275,7 +275,7 @@ import requests
                         return True
         except:
                 elem = sr.find_element_by_id('main')
-
+            return False
 
                     elem = sr.find_element_by_css_selector('settings-basic-page')
                     sr = self.expand_shadow_element(elem)
@@ -290,7 +290,7 @@ import requests
                                 if elem is not None:
             chrome_options.add_argument("--no-sandbox")
         except Exception as e:
-            self.log_error(str(e))
+                    return True
                             elem = sr.find_element_by_css_selector('category-default-setting')
 # Abstract web automation class
                     if target is None:
