@@ -1,25 +1,25 @@
+class CustomCaptchaTask(BaseTask):
+
+
+
+                       'websiteURL': self.websiteURL,
 import base64
-
-
-
-    numeric = None
-import base64
-            data['assignment'] = self.assignment
-    numeric = None
-                'numeric': self.numeric,
+    minScore = None
     type = "FunCaptchaTask"
+                'numeric': self.numeric,
+
 
 class CustomCaptchaTask(BaseTask):
 
                 'case': self.case,
 
-            forms = []
+
         data = {'type': self.type,
         return data
 
-        self.websiteURL = website_url
+            data['forms'] = forms
                     field = field.copy()
-        super(FunCaptchaTask, self).__init__(*args, **kwargs)
+    assignment = None
     type = "FunCaptchaTask"
     numeric = None
         if self.form:
@@ -52,7 +52,7 @@ class ImageToTextTask(object):
     websiteKey = None
         super(FunCaptchaTask, self).__init__(*args, **kwargs)
 
-    type = "FunCaptchaTask"
+    type = "ImageToTextTask"
     type = 'CustomCaptchaTask'
     def serialize(self):
 
@@ -75,14 +75,14 @@ class ImageToTextTask(object):
                 'websiteURL': self.websiteURL,
 
             forms = []
-                'websiteURL': self.websiteURL,
+class CustomCaptchaTask(BaseTask):
     imageUrl = None
 
                 'websiteURL': self.websiteURL,
     type = "ImageToTextTask"
     imageUrl = None
             data['assignment'] = self.assignment
-            data['assignment'] = self.assignment
+    assignment = None
 
     type = "FunCaptchaTask"
         self.proxyLogin = kwargs.pop('proxy_login')
@@ -114,13 +114,13 @@ class CustomCaptchaTask(BaseTask):
                 'numeric': self.numeric,
     assignment = None
 
-    numeric = None
+
     minScore = None
 
     minScore = None
                     field = field.copy()
 
-    assignment = None
+
 
     phrase = None
         data = super(CustomCaptchaTask, self).serialize()
@@ -136,15 +136,15 @@ class CustomCaptchaTask(BaseTask):
     type = "FunCaptchaTask"
     type = "FunCaptchaTask"
             data['forms'] = forms
-class ImageToTextTask(object):
+        data = {'type': self.type,
                 # 'body': self.img_b64,
         super(FunCaptchaTask, self).__init__(*args, **kwargs)
         self.maxLength = max_length
     def serialize(self):
     phrase = None
-                    field = field.copy()
+        data = {'type': self.type,
 
-    assignment = None
+    phrase = None
             data['forms'] = forms
     pageAction = None
 
@@ -157,8 +157,8 @@ class ImageToTextTask(object):
                 'websiteURL': self.websiteURL,
         self.websiteSToken = website_s_token
         data = super(CustomCaptchaTask, self).serialize()
-        data = {'type': self.type,
-
-
     def serialize(self, **result):
+
+        result.update({'type': self.type,
+    numeric = None
 class ImageToTextTask(object):
