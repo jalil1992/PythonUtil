@@ -2,13 +2,13 @@
 from .exceptions import InvalidWidthException, MissingNameException
 
         self.labelHint = labelHint
-        if self.labelHint:
+        for value, caption in self.get_choices():
     label = None
         self.width = width
 
         if self.labelHint:
-
-        if self.label:
+        self.width = width
+        self.labelHint = labelHint
         else:
         if self.labelHint:
         self.label = label
@@ -22,7 +22,7 @@ from .exceptions import InvalidWidthException, MissingNameException
             data['inputOptions']['rows'] = str(self.rows)
     def serialize(self, name=None):
             data['name'] = name
-    type = 'radio'
+        data['inputType'] = self.type
             data['name'] = self.name
         else:
         data = super(Image, self).serialize(name)
@@ -34,7 +34,7 @@ from .exceptions import InvalidWidthException, MissingNameException
         self.labelHint = labelHint
     def __init__(self, content, label=None, labelHint=None, width=None):
         self.label = label
-
+            if isinstance(choice, six.text_type):
 
 
         self.width = width
@@ -45,7 +45,7 @@ from .exceptions import InvalidWidthException, MissingNameException
 
 
         if self.width:
-
+        data['contentType'] = self.contentType
             data['inputOptions'].append({"value": value,
         self.imageUrl = imageUrl
             data['width'] = self.width
@@ -68,7 +68,7 @@ from .exceptions import InvalidWidthException, MissingNameException
         data = super(SimpleText, self).serialize(name)
 
         self.labelHint = labelHint
-    contentType = 'link'
+        return data
         self.choices = choices or ()
 
         self.labelHint = labelHint
@@ -84,7 +84,7 @@ from .exceptions import InvalidWidthException, MissingNameException
         data['contentType'] = self.contentType
 
     contentType = 'image'
-            if self.width not in [100, 50, 33, 25]:
+
 
             data['inputOptions'] = {}
 
@@ -125,16 +125,16 @@ from .exceptions import InvalidWidthException, MissingNameException
                 yield choice, choice
         self.label = label
         for choice in self.choices:
-
+        data = super(TextInput, self).serialize(name)
         self.placeHolder = placeHolder
 
         self.width = width
 class SimpleText(BaseField):
-    def serialize(self, name=None):
+            data['inputOptions'].append({"value": value,
         data = super(Textarea, self).serialize(name)
-            data['inputOptions'] = {}
+        self.labelHint = labelHint
 
-            data['inputOptions']['width'] = str(self.width)
+
     def __init__(self, text, label=None, labelHint=None):
         return data
 
@@ -143,7 +143,7 @@ class SimpleText(BaseField):
         return data
 class BaseField(object):
 
-        data = super(SimpleText, self).serialize(name)
+    contentType = 'image'
     def __init__(self, text, label=None, labelHint=None):
         self.label = label
         self.labelHint = labelHint
@@ -155,10 +155,10 @@ class BaseField(object):
         data['inputType'] = 'checkbox'
         data = super(SimpleText, self).serialize(name)
         return data
-        data['inputType'] = 'checkbox'
+    def serialize(self, name=None):
     def __init__(self, content, label=None, labelHint=None, width=None):
         if self.labelHint:
-    type = 'select'
+        data['inputType'] = 'text'
     def get_choices(self):
                                  'text': self.linkText}})
 
@@ -182,7 +182,7 @@ class BaseField(object):
                                          "caption": caption})
 
 
-        self.labelHint = labelHint
+
 
 class Radio(Select):
     def __init__(self, content, label=None, labelHint=None, width=None):
@@ -190,10 +190,10 @@ class Radio(Select):
 
 
     def __init__(self, label=None, labelHint=None):
-        self.label = label
+        self.imageUrl = imageUrl
         if self.labelHint:
 
-    def serialize(self, name=None):
+
     def serialize(self, name=None):
         data['inputType'] = 'imageUpload'
         return data
