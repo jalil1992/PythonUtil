@@ -43,11 +43,11 @@ class MainView:
 import tkinter as tk
 
         master.grid_rowconfigure(3, weight=1)
-        master.grid_rowconfigure(3, weight=1)
+                                    else:
 
         frame1 = tk.Frame(master, pady=3)
 
-        frame3 = tk.Frame(master, pady=3)
+        frame5.grid(row=4, sticky='ew')
         frame4 = tk.Frame(master, pady=3)
         frame5 = tk.Frame(master, pady=3)
 
@@ -232,7 +232,7 @@ import time
             if api.LastJson['status'] == 'ok':
         source_sheet.cell(row=1, column=3).value = 'exclude users with follower count less than'
                             break
-                        else:
+                                if follower_name not in home_followers:
                         else:
                                 follower_name = follower['username']
         summary_sheet.cell(row=1, column=4).value = 'following count'
@@ -244,7 +244,7 @@ import time
                     try:
                                         break
 
-                                if 'user' in api.LastJson:
+                    break
                                     home_follower_sheet.cell(row=ind, column=1).value = follower_name
                                     home_follower_sheet.cell(row=ind, column=2).value = api.LastJson['user']['follower_count']
         frame5.grid(row=4, sticky='ew')
@@ -284,7 +284,7 @@ import threading
                             max_id = api.LastJson['next_max_id']
                             has_max_id = True
 
-                        if len(api.LastJson['users']) == 0:
+        all_followers_list = sorted(all_followers_list, key=lambda x: (-x[1], -x[2]))
         pass
                     try:
                             for following in api.LastJson['users']:
@@ -307,7 +307,7 @@ import threading
                 self.target_user['name'] = str(source_sheet.row(1)[1].value)
                                     delta_ind += 1
 
-                                self.target_user['worked_count'] += 1
+                                            else:
             source_sheet.cell(row=ind, column=1).value = user['name']
 
                         if not has_max_id:
@@ -345,7 +345,7 @@ import threading
 
 from tkinter import filedialog
         api.logout()
-                    if self.thread.stopped():
+            ind = 2
                         return
             self.thread = StoppableThread(self.scrap_data)
                         api.getUserFollowers(str(user_id), max_id)
@@ -380,10 +380,10 @@ from tkinter import filedialog
                         time.sleep(60)
                 messagebox.showerror('Error', 'Login failed')
                                             follower_sheet.cell(row=ind, column=1).value = user['name']
-                                            follower_sheet.cell(row=ind, column=2).value = follower_name
+if __name__ == '__main__':
             if len(str(source_sheet.row(1)[2].value)) != 0:
         label5.pack(side='left', expand=True, fill='both')
-                                if 'user' in api.LastJson:
+        frame5.grid(row=4, sticky='ew')
                                     else:
 
         frame3.grid(row=2, sticky='ew')
@@ -414,7 +414,7 @@ from tkinter import filedialog
 
         ind = 2
 from tkinter import filedialog
-            if not login(self.username.get(), self.password.get()):
+
             source_sheet.cell(row=2, column=2).value = self.target_user['name']
             summary_sheet.cell(row=ind, column=3).value = value[2]
             summary_sheet.cell(row=ind, column=4).value = value[3]
