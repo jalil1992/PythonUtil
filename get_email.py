@@ -12,8 +12,8 @@ def read_email(email, password):
     else:
         raise NotImplementedError
 
-FROM_EMAIL  = "rod.bland@ramcity.com.au"
-FROM_PWD    = "52>Nq9yC"
+FROM_EMAIL  = "#####"
+FROM_PWD    = "#####"
 
 def read_email_from_gmail(_email, _password):
     try:
