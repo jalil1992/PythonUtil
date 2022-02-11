@@ -1,113 +1,112 @@
-            elem = self.browser.find_element_by_xpath(xpath)
-# 2019.09 David
-                return False
-        self.browser.get(url)
-            if elem is None:
-            return False
-                return False
-        self.browser.execute_script(js)
-    def log_info(self, log):
-ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
-            return False
-from selenium.webdriver.chrome.options import Options
-                latest_ver = self.get_chrome_version()['windows']
-from selenium.common.exceptions import TimeoutException
-            while time.time() < future:
-from bs4 import BeautifulSoup as bs
-ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
-from bs4 import BeautifulSoup as bs
+# Abstract web automation class
 
-            return 0
+import time
+from selenium import webdriver
+from selenium.webdriver.firefox import options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.proxy import *
+from selenium.common.exceptions import TimeoutException
+
+from bs4 import BeautifulSoup as bs
+import requests
+import urllib.request as req
+
+import logging
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
-    def __init__(self):
+import api.states.python_anticaptcha as anticap
 ANTICAPTCHA_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
-            return False
-                        break
+
+class webauto_base():
     def __init__(self):
         pass
 
     # Start chrome browser for automation
-    def wait_present(self, xpath, timeout = 2):
+    def start_browser(self):
         try:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("--no-sandbox")
             self.browser = webdriver.Chrome(executable_path='chromedriver', chrome_options = chrome_options)
-                        break
+            return True
         except Exception as e:
-import requests
+            # If the exception is related to the chrome version, try to download the latest chromedriver
             if 'Chrome version' in str(e):
                 latest_ver = self.get_chrome_version()['windows']
                 self.update_chromedriver(latest_ver)
-                                    elem.click()
-
+            self.log_error(str(e))
+            self.log_error("ERROR: Failed to start the browser")
             self.browser = None
-                try:
+            return False
 
     def get_chrome_version(self):
-    # get base64 encoding of image from xpath
-                    if target is not None:
-                    if target is None:
+        url = "https://www.whatismybrowser.com/guides/the-latest-version/chrome"
+        response = requests.request("GET", url)
+
         soup = bs(response.text, 'html.parser')
         rows = soup.select('td strong')
         version = {}
         version['windows'] = rows[0].parent.next_sibling.next_sibling.text
         version['macos'] = rows[1].parent.next_sibling.next_sibling.text
         version['linux'] = rows[2].parent.next_sibling.next_sibling.text
-                elem = sr.find_element_by_id('main')
-                    pass
+        version['android'] = rows[3].parent.next_sibling.next_sibling.text
+        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
         return version
-                self.delay_me(1)
-            return res
-    def log_error(self, log):
-            while time.time() < future:
-            if 'Chrome version' in str(e):
-                    if mode == 0:
 
-                return False
-                canvas.width = img.width;
-        self.browser.execute_script(js)
+    # logging helper functions
+    def log_error(self, log):
+        logging.error(log)
+
+    def log_info(self, log):
+        logging.info(log)
+
+    # switch to the idx-th tab
+    def switch_tab(self, idx):
         try:
             self.browser.switch_to.window(self.browser.window_handles[idx])
-            future = now + timeout
+        except:
+            return
+    
+    # open a new tab with url
+    def new_tab(self, url = ''):
+        try:
+            self.browser.execute_script("window.open('%s','_blank');"%url)
+        except:
             return
 
-                pass
-    def wait_present(self, xpath, timeout = 2):
-        try:
-        try:
-        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
-            return
-
-                    sr = self.expand_shadow_element(elem)
+    # refresh the browser
     def refresh(self):
-                            sr = self.expand_shadow_element(elem)
-        try:
+        self.browser.refresh()
+
     # wait for <timeout> seconds
     def delay_me(self, timeout = 3):
+        try:
             now = time.time()
-                canvas.width = img.width;
             future = now + timeout
-                    if mode == 0:
+            while time.time() < future:
                 pass
-                    pass
+            return True
         except Exception as e:
             return False
-            if 'Chrome version' in str(e):
+
     # let the browser to wait for <timeout> seconds
     def delay(self, timeout = 3):
         self.browser.implicitly_wait(timeout)
-                        break
-logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+        
+    # number of occurences for specified xpath
+    def occurence(self, xpath):
         try:
-                    elem = sr.find_element_by_css_selector('settings-basic-page')
             elems = self.browser.find_elements_by_xpath(xpath)
             return len(elems)
-            print('solving captcha failed:' + str(e))
+        except:
             return 0
-                            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        pass
-        try:
+
+    # get base64 encoding of image from xpath
+    def get_base64_from_image(self, xpath_img):
         try:
             js = """
                 xpath="%s";
@@ -115,186 +114,186 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
                 var canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
-            future = now + timeout
+                var ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
-                ctx.drawImage(img, 0, 0);
-            return False
+                var dataURL = canvas.toDataURL('image/png');
+                return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
                 """%(xpath_img)
             res = self.browser.execute_script(js)
-                try:
-        try:
-            return
+            return res
+        except Exception as e:
+            print(js)
             print(str(e))
-            return 0
+            return ''
 
     # solve image-captcha automatically and return the result
-    def log_info(self, log):
-from selenium.common.exceptions import TimeoutException
+    def solve_img_captcha(self, img_path, xpath_result):
+        global ANTICAPTCHA_KEY
         try:
             api_key = ANTICAPTCHA_KEY
-                return False
+            client = anticap.AnticaptchaClient(api_key)
             fp = open(img_path, 'rb')
             task = anticap.ImageToTextTask(fp)
             job = client.createTask(task)
             job.join()
             ret = ''
-                        target.send_keys(value)
-        self.browser.execute_script(script)
-from selenium.common.exceptions import TimeoutException
-            self.log_error(str(e))
+            while(ret == ''): # wait for the solve job to be finished
+                ret = job.get_captcha_text()
+                self.delay_me(1)
+            self.set_value(xpath_result, ret)
             return True
-from selenium.webdriver.chrome.options import Options
+        except Exception as e:
             print('solving captcha failed:' + str(e))
             return False
 
-from selenium.webdriver.common.proxy import *
+    # check if there is an element in the specified xpath
     def is_element_present(self, xpath):
         try:
             elem = self.browser.find_element_by_xpath(xpath)
             if elem is None:
-
-                        elem = sr.find_element_by_css_selector('settings-privacy-page')
-# Abstract web automation class
-            return False
-
-                        break
-                    elif mode == 1:
-                self.delay_me(1)
-            future = now + timeout
-            while time.time() < future:
-            y.dispatchEvent(mouseWheelClick)
-        except Exception as e:
-    def __init__(self):
-        version['ios'] = rows[4].parent.next_sibling.next_sibling.text
-                        target.send_keys(value)
-    def wait_present(self, xpath, timeout = 2):
-                        break
-                    else:
-                        self.browser.execute_async_script(js, target)
-    def delay(self, timeout = 3):
-        except Exception as e:
+                return False
+            return True
         except:
             return False
-                    return True
-            return False
+
+    def enter_text(self, xpath, value, timeout = 3, manual = True):
         try:
             now = time.time()
-            y.dispatchEvent(mouseWheelClick)
+            future = now + timeout
+            while time.time() < future:
+                target = self.browser.find_element_by_xpath(xpath)
+                if target is not None:
+                    if manual:
+                        target.send_keys(Keys.CONTROL + "a")
+                        target.send_keys(value)
+                        break
+                    else:
+                        js = "arguments[0].value = '%s'" % (value)
+                        self.browser.execute_async_script(js, target)
+            return True
+        except Exception as e:
+            self.log_error(str(e))
             return False
-    def wait_unpresent(self, xpath, timeout = 3):
+
+    def wait_present(self, xpath, timeout = 2):
+        try:
+            now = time.time()
+            future = now + timeout
+            while time.time() < future:
+                try:
                     target = self.browser.find_element_by_xpath(xpath)
                     if target is not None:
-            return False
+                        return True
                 except:
                     pass
             return False
+        except Exception as e:
+            self.log_error(str(e))(str(e))
+            return False
 
-                    pass
-from selenium.webdriver.common.proxy import Proxy, ProxyType
-                    if manual:
     def wait_unpresent(self, xpath, timeout = 3):
-                latest_ver = self.get_chrome_version()['windows']
+        try:
             now = time.time()
             future = now + timeout
-# Abstract web automation class
-                            xpath = "%s";
-                        target.send_keys(value)
+            while time.time() < future:
+                try:
+                    target = self.browser.find_element_by_xpath(xpath)
                     if target is None:
                         return True
                 except:
                     return True
             return False
         except Exception as e:
-        except:
+            self.log_error(str(e))(str(e))
+            return False
+
+    def navigate(self, url):        
         self.browser.get(url)
 
-from selenium.webdriver.common.proxy import Proxy, ProxyType
-                    if mode == 0:
-        self.browser.get(url)
     def get_attribute(self, xpath, attr = 'value'):
         try:
-            future = now + timeout
+            elem = self.browser.find_element_by_xpath(xpath)
             val = elem.get_attribute(attr)
-        return version
+            return val
         except:
-                    if target is None:
-            if elem is None:
-        script = """(function()
-        except Exception as e:
+            return ''
+    def set_value(self, xpath, val, field='value'):
+        script = """(function() 
+                        {
                             node = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                            if (node==null)
-                target = self.browser.find_element_by_xpath(xpath)
-    def delay_me(self, timeout = 3):
-from selenium.webdriver.common.proxy import Proxy, ProxyType
+                            if (node==null) 
+                                return '';
+                            node.%s='%s'; 
+                            return 'ok';
                 })()"""%(xpath,field,val)
-                self.delay_me(1)
+        # print(script)
         self.browser.execute_script(script)
-    # get base64 encoding of image from xpath
-# Abstract web automation class
-                try:
+
+    def click_element(self, xpath, timeout = 3, mode = 1):
+        try:
             now = time.time()
             future = now + timeout
             while time.time() < future:
-                            elem = sr.find_element_by_css_selector('category-default-setting')
+                target = self.browser.find_element_by_xpath(xpath)
                 if target is not None:
-            return
+                    if mode == 0:
                         target.click()
                     elif mode == 1:
                         js = """
-                    sr = self.expand_shadow_element(elem)
+                            xpath = "%s";
                             y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-        try:
+                            y.click()
                             """%(xpath)
                         self.browser.execute_script(js)
                     return True
             return False
-
+        except Exception as e:
             self.log_error(str(e))
 
     def middle_click(self, xpath, timeout = 3):
-                self.delay_me(1)
-                    pass
+        js = """
+            xpath = "%s";
             var mouseWheelClick = new MouseEvent('click', {'button': 1, 'which': 1 });
-    def is_element_present(self, xpath):
-                    return True
-import requests
+            y=document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            y.dispatchEvent(mouseWheelClick)
+            """%(xpath)
         self.browser.execute_script(js)
-
+    
     def expand_shadow_element(self, element):
         try:
-                """%(xpath_img)
+            shadow_root = self.browser.execute_script('return arguments[0].shadowRoot', element)
             return shadow_root
-                        {
-                try:
+        except Exception as e:
+            self.log_error(str(e))
             return None
 
     def allow_popup(self):
-                elem = sr.find_element_by_id('main')
+        try:
             self.navigate("chrome://settings/content/popups")
-# Abstract web automation class
-                        return True
-        except:
-                elem = sr.find_element_by_id('main')
-            return False
-
+            elem = self.browser.find_element_by_tag_name('settings-ui')
+            sr = self.expand_shadow_element(elem)
+            if sr is not None:
+                elem = sr.find_element_by_id('main')              
+                sr = self.expand_shadow_element(elem)
+                if sr is not None:
                     elem = sr.find_element_by_css_selector('settings-basic-page')
                     sr = self.expand_shadow_element(elem)
                     if sr is not None:
                         elem = sr.find_element_by_css_selector('settings-privacy-page')
-    def middle_click(self, xpath, timeout = 3):
-    def wait_present(self, xpath, timeout = 2):
+                        sr = self.expand_shadow_element(elem)
+                        if sr is not None:
                             elem = sr.find_element_by_css_selector('category-default-setting')
-                try:
+                            sr = self.expand_shadow_element(elem)
                             if sr is not None:
-            while time.time() < future:
+                                elem = sr.find_element_by_id('toggle')
                                 if elem is not None:
-            chrome_options.add_argument("--no-sandbox")
+                                    elem.click()
         except Exception as e:
-                    return True
-                            elem = sr.find_element_by_css_selector('category-default-setting')
-# Abstract web automation class
-                    if target is None:
+            self.log_error(str(e))
+
+    def quit_browser(self):
+        try:
             if self.browser is not None:
                 self.browser.quit()
-                    if target is None:
+        except Exception as e:
             self.log_error(str(e))
